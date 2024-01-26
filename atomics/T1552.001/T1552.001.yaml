@@ -43,7 +43,7 @@ atomic_tests:
         default: /
     executor:
       command: |
-        timeout 10 grep -ri password  #{file_path}
+        (timeout 5 grep -ri password  #{file_path}) || true
         exit 0
       name: sh
   - name: Extracting passwords with findstr
