@@ -62,7 +62,8 @@
   - Atomic Test #9: Linux Base64 Encoded Shebang in CLI [linux, macos]
   - Atomic Test #10: XOR decoding and command execution using Python [linux, macos]
 - T1562 Impair Defenses [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
-- T1036 Masquerading [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1036 Masquerading](../../T1036/T1036.md)
+  - Atomic Test #3: Masquerading - Space after Filename [linux, macos]
 - [T1070.008 Email Collection: Mailbox Manipulation](../../T1070.008/T1070.008.md)
   - Atomic Test #3: Copy and Delete Mailbox Data on macOS [macos]
   - Atomic Test #6: Copy and Modify Mailbox Data on macOS [macos]

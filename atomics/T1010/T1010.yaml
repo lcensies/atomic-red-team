@@ -1,36 +1,62 @@
+---
 attack_technique: T1010
 display_name: Application Window Discovery
 atomic_tests:
-- name: List Process Main Windows - C# .NET
-  auto_generated_guid: fe94a1c3-3e22-4dc9-9fdf-3a8bdbc10dc4
-  description: |
-    Compiles and executes C# code to list main window titles associated with each process.
-
-    Upon successful execution, powershell will download the .cs from the Atomic Red Team repo, and cmd.exe will compile and execute T1010.exe. Upon T1010.exe execution, expected output will be via stdout.
-  supported_platforms:
-  - windows
-  input_arguments:
-    input_source_code:
-      description: Path to source of C# code
-      type: path
-      default: PathToAtomicsFolder\T1010\src\T1010.cs
-    output_file_name:
-      description: Name of output binary
-      type: string
-      default: '%TEMP%\T1010.exe'
-  dependency_executor_name: powershell
-  dependencies:
-  - description: |
-      T1010.cs must exist on disk at specified location (#{input_source_code})
-    prereq_command: |
-      if (Test-Path "#{input_source_code}") {exit 0} else {exit 1}
-    get_prereq_command: |
-      New-Item -Type Directory (split-path "#{input_source_code}") -ErrorAction ignore | Out-Null
-      Invoke-WebRequest https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1010/src/T1010.cs -OutFile "#{input_source_code}"
-  executor:
-    command: |
-      C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe -out:#{output_file_name} "#{input_source_code}"
-      #{output_file_name}
-    cleanup_command: |
-      del /f /q /s #{output_file_name} >nul 2>&1
-    name: command_prompt
+  - name: List Process Main Windows - C# .NET
+    auto_generated_guid: fe94a1c3-3e22-4dc9-9fdf-3a8bdbc10dc4
+    description: |
+      Compiles and executes C# code to list main window titles associated with each process.
+      Upon successful execution, powershell will download the .cs from the Atomic Red Team repo, and cmd.exe will compile and execute T1010.exe. Upon T1010.exe execution, expected output will be via stdout.
+    supported_platforms: [windows]
+    input_arguments:
+      input_source_code:
+        description: Path to source of C# code
+        type: path
+        default: PathToAtomicsFolder\T1010\src\T1010.cs
+      output_file_name:
+        description: Name of output binary
+        type: string
+        default: '%TEMP%\T1010.exe'
+    dependency_executor_name: powershell
+    dependencies:
+      - description: |
+          T1010.cs must exist on disk at specified location (#{input_source_code})
+        prereq_command: |
+          if (Test-Path "#{input_source_code}") {exit 0} else {exit 1}
+        get_prereq_command: |
+          New-Item -Type Directory (split-path "#{input_source_code}") -ErrorAction ignore | Out-Null
+          Invoke-WebRequest https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1010/src/T1010.cs -OutFile "#{input_source_code}"
+    executor:
+      command: |
+        C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe -out:#{output_file_name} "#{input_source_code}"
+        #{output_file_name}
+      cleanup_command: |
+        del /f /q /s  #{output_file_name} >nul 2>&1
+      name: command_prompt
+  - name: Window Manager Control - wmctrl/list
+    auto_generated_guid: c2494f92-1ee7-4e1e-b0e1-26e19ce7e95a
+    description: |
+      Detects the execution of wmctrl with the '-l' option
+    supported_platforms: [linux]
+    executor:
+      command: wmctrl -l
+      name: bash
+    events: [process_exec]
+  - name: Application Window Discovery - wmctrl/list
+    auto_generated_guid: 5fd41e6a-3d60-4aa1-8c3c-5bf31d26b296
+    description: |
+      Detects the execution of wmctrl with the '-l' option for Application Window Discovery (T1010)
+    supported_platforms: [linux]
+    executor:
+      command: wmctrl -l
+      name: bash
+    events: [process_exec]
+  - name: Application Window Discovery - xlsclients
+    auto_generated_guid: 726689ed-4391-4022-bec7-aa6fb36d27a5
+    description: |
+      Detects the execution of xlsclients for Application Window Discovery (T1010)
+    supported_platforms: [linux]
+    executor:
+      command: xlsclients
+      name: bash
+    events: [process_exec]

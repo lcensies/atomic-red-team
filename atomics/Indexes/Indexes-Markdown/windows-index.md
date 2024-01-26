@@ -1490,10 +1490,10 @@
 # discovery
 - [T1033 System Owner/User Discovery](../../T1033/T1033.md)
   - Atomic Test #1: System Owner/User Discovery [windows]
-  - Atomic Test #3: Find computers where user has session - Stealth mode (PowerView) [windows]
-  - Atomic Test #4: User Discovery With Env Vars PowerShell Script [windows]
-  - Atomic Test #5: GetCurrent User with PowerShell Script [windows]
-  - Atomic Test #6: System Discovery - SocGholish whoami [windows]
+  - Atomic Test #4: Find computers where user has session - Stealth mode (PowerView) [windows]
+  - Atomic Test #5: User Discovery With Env Vars PowerShell Script [windows]
+  - Atomic Test #6: GetCurrent User with PowerShell Script [windows]
+  - Atomic Test #7: System Discovery - SocGholish whoami [windows]
 - T1016.001 Internet Connection Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1069 Permission Groups Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1615 Group Policy Discovery](../../T1615/T1615.md)

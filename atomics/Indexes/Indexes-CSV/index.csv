@@ -160,6 +160,7 @@ defense-evasion,T1562,Impair Defenses,3,Disable journal logging via sed utility,
 defense-evasion,T1055.003,Thread Execution Hijacking,1,Thread Execution Hijacking,578025d5-faa9-4f6d-8390-aae527d503e1,powershell
 defense-evasion,T1036,Masquerading,1,System File Copied to Unusual Location,51005ac7-52e2-45e0-bdab-d17c6d4916cd,powershell
 defense-evasion,T1036,Masquerading,2,Malware Masquerading and Execution from Zip File,4449c89b-ec82-43a4-89c1-91e2f1abeecc,powershell
+defense-evasion,T1036,Masquerading,3,Masquerading - Space after Filename,2f9e9f82-5c68-4f61-86ea-88e03405309c,bash
 defense-evasion,T1070.008,Email Collection: Mailbox Manipulation,1,Copy and Delete Mailbox Data on Windows,d29f01ea-ac72-4efc-8a15-bea64b77fabf,powershell
 defense-evasion,T1070.008,Email Collection: Mailbox Manipulation,2,Copy and Delete Mailbox Data on Linux,25e2be0e-96f7-4417-bd16-a4a2500e3802,bash
 defense-evasion,T1070.008,Email Collection: Mailbox Manipulation,3,Copy and Delete Mailbox Data on macOS,3824130e-a6e4-4528-8091-3a52eeb540f6,bash
@@ -1533,10 +1534,11 @@ credential-access,T1552.007,Kubernetes List Secrets,2,ListSecrets,43c3a49d-d15c-
 credential-access,T1552.007,Kubernetes List Secrets,3,Cat the contents of a Kubernetes service account token file,788e0019-a483-45da-bcfe-96353d46820f,sh
 discovery,T1033,System Owner/User Discovery,1,System Owner/User Discovery,4c4959bf-addf-4b4a-be86-8d09cc1857aa,command_prompt
 discovery,T1033,System Owner/User Discovery,2,System Owner/User Discovery,2a9b677d-a230-44f4-ad86-782df1ef108c,sh
-discovery,T1033,System Owner/User Discovery,3,Find computers where user has session - Stealth mode (PowerView),29857f27-a36f-4f7e-8084-4557cd6207ca,powershell
-discovery,T1033,System Owner/User Discovery,4,User Discovery With Env Vars PowerShell Script,dcb6cdee-1fb0-4087-8bf8-88cfd136ba51,powershell
-discovery,T1033,System Owner/User Discovery,5,GetCurrent User with PowerShell Script,1392bd0f-5d5a-429e-81d9-eb9d4d4d5b3b,powershell
-discovery,T1033,System Owner/User Discovery,6,System Discovery - SocGholish whoami,3d257a03-eb80-41c5-b744-bb37ac7f65c7,powershell
+discovery,T1033,System Owner/User Discovery,3,User Activity Discovery - Shell Commands,54366f3c-7c64-4bfc-932e-40c5db56749f,sh
+discovery,T1033,System Owner/User Discovery,4,Find computers where user has session - Stealth mode (PowerView),29857f27-a36f-4f7e-8084-4557cd6207ca,powershell
+discovery,T1033,System Owner/User Discovery,5,User Discovery With Env Vars PowerShell Script,dcb6cdee-1fb0-4087-8bf8-88cfd136ba51,powershell
+discovery,T1033,System Owner/User Discovery,6,GetCurrent User with PowerShell Script,1392bd0f-5d5a-429e-81d9-eb9d4d4d5b3b,powershell
+discovery,T1033,System Owner/User Discovery,7,System Discovery - SocGholish whoami,3d257a03-eb80-41c5-b744-bb37ac7f65c7,powershell
 discovery,T1613,Container and Resource Discovery,1,Container and ResourceDiscovery,8a895923-f99f-4668-acf2-6cc59a44f05e,sh
 discovery,T1615,Group Policy Discovery,1,Display group policy information via gpresult,0976990f-53b1-4d3f-a185-6df5be429d3b,command_prompt
 discovery,T1615,Group Policy Discovery,2,Get-DomainGPO to display group policy information via PowerView,4e524c4e-0e02-49aa-8df5-93f3f7959b9f,powershell
@@ -1600,6 +1602,8 @@ discovery,T1069.002,Permission Groups Discovery: Domain Groups,15,Active Directo
 discovery,T1007,System Service Discovery,1,System Service Discovery,89676ba1-b1f8-47ee-b940-2e1a113ebc71,command_prompt
 discovery,T1007,System Service Discovery,2,System Service Discovery - net.exe,5f864a3f-8ce9-45c0-812c-bdf7d8aeacc3,command_prompt
 discovery,T1007,System Service Discovery,3,System Service Discovery - systemctl/service,f4b26bce-4c2c-46c0-bcc5-fce062d38bef,bash
+discovery,T1007,System Service Discovery,4,System Service Discovery - service/status-all,7a8c3e96-c2a9-4f12-bd39-1a24332b8a10,bash
+discovery,T1007,System Service Discovery,5,File Read - /etc/init.d,e8d7b7b1-8870-4c0d-bcf1-2f5e8c1581f7,bash
 discovery,T1040,Network Sniffing,1,Packet Capture Linux using tshark or tcpdump,7fe741f7-b265-4951-a7c7-320889083b3e,bash
 discovery,T1040,Network Sniffing,2,Packet Capture FreeBSD using tshark or tcpdump,c93f2492-9ebe-44b5-8b45-36574cccfe67,sh
 discovery,T1040,Network Sniffing,3,Packet Capture macOS using tcpdump or tshark,9d04efee-eff5-4240-b8d2-07792b873608,bash
@@ -1661,6 +1665,9 @@ discovery,T1082,System Information Discovery,31,BIOS Information Discovery throu
 discovery,T1082,System Information Discovery,32,ESXi - VM Discovery using ESXCLI,2040405c-eea6-4c1c-aef3-c2acc430fac9,command_prompt
 discovery,T1082,System Information Discovery,33,ESXi - Darkside system information discovery,f89812e5-67d1-4f49-86fa-cbc6609ea86a,command_prompt
 discovery,T1010,Application Window Discovery,1,List Process Main Windows - C# .NET,fe94a1c3-3e22-4dc9-9fdf-3a8bdbc10dc4,command_prompt
+discovery,T1010,Application Window Discovery,2,Window Manager Control - wmctrl/list,c2494f92-1ee7-4e1e-b0e1-26e19ce7e95a,bash
+discovery,T1010,Application Window Discovery,3,Application Window Discovery - wmctrl/list,5fd41e6a-3d60-4aa1-8c3c-5bf31d26b296,bash
+discovery,T1010,Application Window Discovery,4,Application Window Discovery - xlsclients,726689ed-4391-4022-bec7-aa6fb36d27a5,bash
 discovery,T1580,Cloud Infrastructure Discovery,1,AWS - EC2 Enumeration from Cloud Instance,99ee161b-dcb1-4276-8ecb-7cfdcb207820,sh
 discovery,T1217,Browser Bookmark Discovery,1,List Mozilla Firefox Bookmark Database Files on FreeBSD/Linux,3a41f169-a5ab-407f-9269-abafdb5da6c2,sh
 discovery,T1217,Browser Bookmark Discovery,2,List Mozilla Firefox Bookmark Database Files on macOS,1ca1f9c7-44bc-46bb-8c85-c50e2e94267b,sh
@@ -1680,6 +1687,7 @@ discovery,T1016,System Network Configuration Discovery,6,Adfind - Enumerate Acti
 discovery,T1016,System Network Configuration Discovery,7,Qakbot Recon,121de5c6-5818-4868-b8a7-8fd07c455c1b,command_prompt
 discovery,T1016,System Network Configuration Discovery,8,List macOS Firewall Rules,ff1d8c25-2aa4-4f18-a425-fede4a41ee88,bash
 discovery,T1016,System Network Configuration Discovery,9,DNS Server Discovery Using nslookup,34557863-344a-468f-808b-a1bfb89b4fa9,command_prompt
+discovery,T1016,System Network Configuration Discovery,10,File Read - /etc/hosts,1e4f5b8c-b22a-48e8-8b9e-0e3fb7ab82c3,bash
 discovery,T1482,Domain Trust Discovery,1,Windows - Discover domain trusts with dsquery,4700a710-c821-4e17-a3ec-9e4c81d6845f,command_prompt
 discovery,T1482,Domain Trust Discovery,2,Windows - Discover domain trusts with nltest,2e22641d-0498-48d2-b9ff-c71e496ccdbe,command_prompt
 discovery,T1482,Domain Trust Discovery,3,Powershell enumerate domains and forests,c58fbc62-8a62-489e-8f2d-3565d7d96f30,powershell
@@ -1767,6 +1775,7 @@ discovery,T1018,Remote System Discovery,18,Enumerate Active Directory Computers 
 discovery,T1018,Remote System Discovery,19,Get-DomainController with PowerView,b9d2e8ca-5520-4737-8076-4f08913da2c4,powershell
 discovery,T1018,Remote System Discovery,20,Get-WmiObject to Enumerate Domain Controllers,e3cf5123-f6c9-4375-bdf2-1bb3ba43a1ad,powershell
 discovery,T1018,Remote System Discovery,21,Remote System Discovery - net group Domain Controller,5843529a-5056-4bc1-9c13-a311e2af4ca0,command_prompt
+discovery,T1018,Remote System Discovery,22,File Read - /etc/hosts,1e4f5b8c-b22a-48e8-8b9e-0e3fb7ab82c3,bash
 discovery,T1046,Network Service Discovery,1,Port Scan,68e907da-2539-48f6-9fc9-257a78c05540,bash
 discovery,T1046,Network Service Discovery,2,Port Scan Nmap,515942b0-a09f-4163-a7bb-22fefb6f185f,sh
 discovery,T1046,Network Service Discovery,3,Port Scan NMap for Windows,d696a3cb-d7a8-4976-8eb5-5af4abf2e3df,powershell

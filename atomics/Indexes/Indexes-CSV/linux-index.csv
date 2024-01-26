@@ -57,6 +57,7 @@ defense-evasion,T1140,Deobfuscate/Decode Files or Information,9,Linux Base64 Enc
 defense-evasion,T1140,Deobfuscate/Decode Files or Information,10,XOR decoding and command execution using Python,c3b65cd5-ee51-4e98-b6a3-6cbdec138efc,bash
 defense-evasion,T1562,Impair Defenses,2,Disable journal logging via systemctl utility,c3a377f9-1203-4454-aa35-9d391d34768f,sh
 defense-evasion,T1562,Impair Defenses,3,Disable journal logging via sed utility,12e5551c-8d5c-408e-b3e4-63f53b03379f,sh
+defense-evasion,T1036,Masquerading,3,Masquerading - Space after Filename,2f9e9f82-5c68-4f61-86ea-88e03405309c,bash
 defense-evasion,T1070.008,Email Collection: Mailbox Manipulation,2,Copy and Delete Mailbox Data on Linux,25e2be0e-96f7-4417-bd16-a4a2500e3802,bash
 defense-evasion,T1070.008,Email Collection: Mailbox Manipulation,5,Copy and Modify Mailbox Data on Linux,6d99f93c-da56-49e3-b195-163090ace4f6,bash
 defense-evasion,T1070.006,Indicator Removal on Host: Timestomp,1,Set a file's access timestamp,5f9113d5-ed75-47ed-ba23-ea3573d05810,sh
@@ -317,6 +318,7 @@ credential-access,T1003.008,"OS Credential Dumping: /etc/passwd, /etc/master.pas
 credential-access,T1003.008,"OS Credential Dumping: /etc/passwd, /etc/master.passwd and /etc/shadow",4,"Access /etc/{shadow,passwd,master.passwd} with a standard bin that's not cat",df1a55ae-019d-4120-bc35-94f4bc5c4b0a,sh
 credential-access,T1003.008,"OS Credential Dumping: /etc/passwd, /etc/master.passwd and /etc/shadow",5,"Access /etc/{shadow,passwd,master.passwd} with shell builtins",f5aa6543-6cb2-4fae-b9c2-b96e14721713,sh
 discovery,T1033,System Owner/User Discovery,2,System Owner/User Discovery,2a9b677d-a230-44f4-ad86-782df1ef108c,sh
+discovery,T1033,System Owner/User Discovery,3,User Activity Discovery - Shell Commands,54366f3c-7c64-4bfc-932e-40c5db56749f,sh
 discovery,T1087.002,Account Discovery: Domain Account,23,Active Directory Domain Search,096b6d2a-b63f-4100-8fa0-525da4cd25ca,sh
 discovery,T1087.002,Account Discovery: Domain Account,24,Account Enumeration with LDAPDomainDump,a54d497e-8dbe-4558-9895-44944baa395f,sh
 discovery,T1087.001,Account Discovery: Local Account,1,Enumerate all accounts (Local),f8aab3dd-5990-4bf8-b8ab-2226c951696f,sh
@@ -329,6 +331,8 @@ discovery,T1497.001,Virtualization/Sandbox Evasion: System Checks,1,Detect Virtu
 discovery,T1497.001,Virtualization/Sandbox Evasion: System Checks,2,Detect Virtualization Environment (FreeBSD),e129d73b-3e03-4ae9-bf1e-67fc8921e0fd,sh
 discovery,T1069.002,Permission Groups Discovery: Domain Groups,15,Active Directory Domain Search Using LDAP - Linux (Ubuntu)/macOS,d58d749c-4450-4975-a9e9-8b1d562755c2,sh
 discovery,T1007,System Service Discovery,3,System Service Discovery - systemctl/service,f4b26bce-4c2c-46c0-bcc5-fce062d38bef,bash
+discovery,T1007,System Service Discovery,4,System Service Discovery - service/status-all,7a8c3e96-c2a9-4f12-bd39-1a24332b8a10,bash
+discovery,T1007,System Service Discovery,5,File Read - /etc/init.d,e8d7b7b1-8870-4c0d-bcf1-2f5e8c1581f7,bash
 discovery,T1040,Network Sniffing,1,Packet Capture Linux using tshark or tcpdump,7fe741f7-b265-4951-a7c7-320889083b3e,bash
 discovery,T1040,Network Sniffing,2,Packet Capture FreeBSD using tshark or tcpdump,c93f2492-9ebe-44b5-8b45-36574cccfe67,sh
 discovery,T1040,Network Sniffing,10,Packet Capture FreeBSD using /dev/bpfN with sudo,e2028771-1bfb-48f5-b5e6-e50ee0942a14,sh
@@ -349,9 +353,13 @@ discovery,T1082,System Information Discovery,25,Linux List Kernel Modules,034fe2
 discovery,T1082,System Information Discovery,26,FreeBSD List Kernel Modules,4947897f-643a-4b75-b3f5-bed6885749f6,sh
 discovery,T1082,System Information Discovery,32,ESXi - VM Discovery using ESXCLI,2040405c-eea6-4c1c-aef3-c2acc430fac9,command_prompt
 discovery,T1082,System Information Discovery,33,ESXi - Darkside system information discovery,f89812e5-67d1-4f49-86fa-cbc6609ea86a,command_prompt
+discovery,T1010,Application Window Discovery,2,Window Manager Control - wmctrl/list,c2494f92-1ee7-4e1e-b0e1-26e19ce7e95a,bash
+discovery,T1010,Application Window Discovery,3,Application Window Discovery - wmctrl/list,5fd41e6a-3d60-4aa1-8c3c-5bf31d26b296,bash
+discovery,T1010,Application Window Discovery,4,Application Window Discovery - xlsclients,726689ed-4391-4022-bec7-aa6fb36d27a5,bash
 discovery,T1217,Browser Bookmark Discovery,1,List Mozilla Firefox Bookmark Database Files on FreeBSD/Linux,3a41f169-a5ab-407f-9269-abafdb5da6c2,sh
 discovery,T1217,Browser Bookmark Discovery,4,List Google Chromium Bookmark JSON Files on FreeBSD,88ca025b-3040-44eb-9168-bd8af22b82fa,sh
 discovery,T1016,System Network Configuration Discovery,3,System Network Configuration Discovery,c141bbdb-7fca-4254-9fd6-f47e79447e17,sh
+discovery,T1016,System Network Configuration Discovery,10,File Read - /etc/hosts,1e4f5b8c-b22a-48e8-8b9e-0e3fb7ab82c3,bash
 discovery,T1083,File and Directory Discovery,3,Nix File and Directory Discovery,ffc8b249-372a-4b74-adcd-e4c0430842de,sh
 discovery,T1083,File and Directory Discovery,4,Nix File and Directory Discovery 2,13c5e1ae-605b-46c4-a79f-db28c77ff24e,sh
 discovery,T1083,File and Directory Discovery,7,ESXi - Enumerate VMDKs available on an ESXi Host,4a233a40-caf7-4cf1-890a-c6331bbc72cf,command_prompt
@@ -375,6 +383,7 @@ discovery,T1018,Remote System Discovery,12,Remote System Discovery - ip neighbou
 discovery,T1018,Remote System Discovery,13,Remote System Discovery - ip route,1a4ebe70-31d0-417b-ade2-ef4cb3e7d0e1,sh
 discovery,T1018,Remote System Discovery,14,Remote System Discovery - netstat,d2791d72-b67f-4615-814f-ec824a91f514,sh
 discovery,T1018,Remote System Discovery,15,Remote System Discovery - ip tcp_metrics,6c2da894-0b57-43cb-87af-46ea3b501388,sh
+discovery,T1018,Remote System Discovery,22,File Read - /etc/hosts,1e4f5b8c-b22a-48e8-8b9e-0e3fb7ab82c3,bash
 discovery,T1046,Network Service Discovery,1,Port Scan,68e907da-2539-48f6-9fc9-257a78c05540,bash
 discovery,T1046,Network Service Discovery,2,Port Scan Nmap,515942b0-a09f-4163-a7bb-22fefb6f185f,sh
 execution,T1053.003,Scheduled Task/Job: Cron,1,Cron - Replace crontab with referenced file,435057fb-74b1-410e-9403-d81baf194f75,sh

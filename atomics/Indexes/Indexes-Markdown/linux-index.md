@@ -78,7 +78,8 @@
 - [T1562 Impair Defenses](../../T1562/T1562.md)
   - Atomic Test #2: Disable journal logging via systemctl utility [linux]
   - Atomic Test #3: Disable journal logging via sed utility [linux]
-- T1036 Masquerading [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1036 Masquerading](../../T1036/T1036.md)
+  - Atomic Test #3: Masquerading - Space after Filename [linux, macos]
 - [T1070.008 Email Collection: Mailbox Manipulation](../../T1070.008/T1070.008.md)
   - Atomic Test #2: Copy and Delete Mailbox Data on Linux [linux]
   - Atomic Test #5: Copy and Modify Mailbox Data on Linux [linux]
@@ -603,6 +604,7 @@
 # discovery
 - [T1033 System Owner/User Discovery](../../T1033/T1033.md)
   - Atomic Test #2: System Owner/User Discovery [linux, macos]
+  - Atomic Test #3: User Activity Discovery - Shell Commands [linux]
 - T1016.001 Internet Connection Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1069 Permission Groups Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1652 Device Driver Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -623,6 +625,8 @@
   - Atomic Test #15: Active Directory Domain Search Using LDAP - Linux (Ubuntu)/macOS [linux]
 - [T1007 System Service Discovery](../../T1007/T1007.md)
   - Atomic Test #3: System Service Discovery - systemctl/service [linux]
+  - Atomic Test #4: System Service Discovery - service/status-all [linux]
+  - Atomic Test #5: File Read - /etc/init.d [linux]
 - [T1040 Network Sniffing](../../T1040/T1040.md)
   - Atomic Test #1: Packet Capture Linux using tshark or tcpdump [linux]
   - Atomic Test #2: Packet Capture FreeBSD using tshark or tcpdump [linux]
@@ -648,13 +652,17 @@
   - Atomic Test #32: ESXi - VM Discovery using ESXCLI [linux]
   - Atomic Test #33: ESXi - Darkside system information discovery [linux]
 - T1016.002 Wi-Fi Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
-- T1010 Application Window Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1010 Application Window Discovery](../../T1010/T1010.md)
+  - Atomic Test #2: Window Manager Control - wmctrl/list [linux]
+  - Atomic Test #3: Application Window Discovery - wmctrl/list [linux]
+  - Atomic Test #4: Application Window Discovery - xlsclients [linux]
 - T1497.003 Time Based Evasion [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1217 Browser Bookmark Discovery](../../T1217/T1217.md)
   - Atomic Test #1: List Mozilla Firefox Bookmark Database Files on FreeBSD/Linux [linux]
   - Atomic Test #4: List Google Chromium Bookmark JSON Files on FreeBSD [linux]
 - [T1016 System Network Configuration Discovery](../../T1016/T1016.md)
   - Atomic Test #3: System Network Configuration Discovery [macos, linux]
+  - Atomic Test #10: File Read - /etc/hosts [linux]
 - T1087 Account Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1083 File and Directory Discovery](../../T1083/T1083.md)
   - Atomic Test #3: Nix File and Directory Discovery [linux, macos]
@@ -691,6 +699,7 @@
   - Atomic Test #13: Remote System Discovery - ip route [linux]
   - Atomic Test #14: Remote System Discovery - netstat [linux]
   - Atomic Test #15: Remote System Discovery - ip tcp_metrics [linux]
+  - Atomic Test #22: File Read - /etc/hosts [linux]
 - [T1046 Network Service Discovery](../../T1046/T1046.md)
   - Atomic Test #1: Port Scan [linux, macos]
   - Atomic Test #2: Port Scan Nmap [linux, macos]

@@ -208,6 +208,7 @@
 - [T1036 Masquerading](../../T1036/T1036.md)
   - Atomic Test #1: System File Copied to Unusual Location [windows]
   - Atomic Test #2: Malware Masquerading and Execution from Zip File [windows]
+  - Atomic Test #3: Masquerading - Space after Filename [linux, macos]
 - [T1070.008 Email Collection: Mailbox Manipulation](../../T1070.008/T1070.008.md)
   - Atomic Test #1: Copy and Delete Mailbox Data on Windows [windows]
   - Atomic Test #2: Copy and Delete Mailbox Data on Linux [linux]
@@ -2161,10 +2162,11 @@
 - [T1033 System Owner/User Discovery](../../T1033/T1033.md)
   - Atomic Test #1: System Owner/User Discovery [windows]
   - Atomic Test #2: System Owner/User Discovery [linux, macos]
-  - Atomic Test #3: Find computers where user has session - Stealth mode (PowerView) [windows]
-  - Atomic Test #4: User Discovery With Env Vars PowerShell Script [windows]
-  - Atomic Test #5: GetCurrent User with PowerShell Script [windows]
-  - Atomic Test #6: System Discovery - SocGholish whoami [windows]
+  - Atomic Test #3: User Activity Discovery - Shell Commands [linux]
+  - Atomic Test #4: Find computers where user has session - Stealth mode (PowerView) [windows]
+  - Atomic Test #5: User Discovery With Env Vars PowerShell Script [windows]
+  - Atomic Test #6: GetCurrent User with PowerShell Script [windows]
+  - Atomic Test #7: System Discovery - SocGholish whoami [windows]
 - [T1613 Container and Resource Discovery](../../T1613/T1613.md)
   - Atomic Test #1: Container and ResourceDiscovery [containers]
 - T1016.001 Internet Connection Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -2239,6 +2241,8 @@
   - Atomic Test #1: System Service Discovery [windows]
   - Atomic Test #2: System Service Discovery - net.exe [windows]
   - Atomic Test #3: System Service Discovery - systemctl/service [linux]
+  - Atomic Test #4: System Service Discovery - service/status-all [linux]
+  - Atomic Test #5: File Read - /etc/init.d [linux]
 - [T1040 Network Sniffing](../../T1040/T1040.md)
   - Atomic Test #1: Packet Capture Linux using tshark or tcpdump [linux]
   - Atomic Test #2: Packet Capture FreeBSD using tshark or tcpdump [linux]
@@ -2306,6 +2310,9 @@
 - T1016.002 Wi-Fi Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1010 Application Window Discovery](../../T1010/T1010.md)
   - Atomic Test #1: List Process Main Windows - C# .NET [windows]
+  - Atomic Test #2: Window Manager Control - wmctrl/list [linux]
+  - Atomic Test #3: Application Window Discovery - wmctrl/list [linux]
+  - Atomic Test #4: Application Window Discovery - xlsclients [linux]
 - T1087.003 Email Account [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1497.003 Time Based Evasion [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1580 Cloud Infrastructure Discovery](../../T1580/T1580.md)
@@ -2330,6 +2337,7 @@
   - Atomic Test #7: Qakbot Recon [windows]
   - Atomic Test #8: List macOS Firewall Rules [macos]
   - Atomic Test #9: DNS Server Discovery Using nslookup [windows]
+  - Atomic Test #10: File Read - /etc/hosts [linux]
 - T1087 Account Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1482 Domain Trust Discovery](../../T1482/T1482.md)
   - Atomic Test #1: Windows - Discover domain trusts with dsquery [windows]
@@ -2435,6 +2443,7 @@
   - Atomic Test #19: Get-DomainController with PowerView [windows]
   - Atomic Test #20: Get-WmiObject to Enumerate Domain Controllers [windows]
   - Atomic Test #21: Remote System Discovery - net group Domain Controller [windows]
+  - Atomic Test #22: File Read - /etc/hosts [linux]
 - [T1046 Network Service Discovery](../../T1046/T1046.md)
   - Atomic Test #1: Port Scan [linux, macos]
   - Atomic Test #2: Port Scan Nmap [linux, macos]
