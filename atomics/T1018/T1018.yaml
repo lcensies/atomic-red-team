@@ -7,7 +7,8 @@ atomic_tests:
     description: |
       Identify remote systems with net.exe.
       Upon successful execution, cmd.exe will execute `net.exe view` and display results of local systems on the network that have file and print sharing enabled.
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     executor:
       command: |
         net view /domain
@@ -18,7 +19,8 @@ atomic_tests:
     description: |
       Identify remote systems with net.exe querying the Active Directory Domain Computers group.
       Upon successful execution, cmd.exe will execute cmd.exe against Active Directory to list the "Domain Computers" group. Output will be via stdout.
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     executor:
       command: |
         net group "Domain Computers" /domain
@@ -28,7 +30,8 @@ atomic_tests:
     description: |
       Identify domain controllers for specified domain.
       Upon successful execution, cmd.exe will execute nltest.exe against a target domain to retrieve a list of domain controllers. Output will be via stdout.
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     input_arguments:
       target_domain:
         description: Domain to query for domain controllers
@@ -38,12 +41,13 @@ atomic_tests:
       command: |
         nltest.exe /dclist:#{target_domain}
       name: command_prompt
-  - name: Remote System Discovery - ping sweep
+  - name: Remote System Discovery - ping sweep - Windows
     auto_generated_guid: 6db1f57f-d1d5-4223-8a66-55c9c65a9592
     description: |
-      Identify remote systems via ping sweep.
+      Identify remote systems via ping sweep 
       Upon successful execution, cmd.exe will perform a for loop against the 192.168.1.1/24 network. Output will be via stdout.
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     input_arguments:
       start_host:
         description: Last octet starting value for ping sweep.
@@ -66,7 +70,8 @@ atomic_tests:
     description: |
       Identify remote systems via arp. 
       Upon successful execution, cmd.exe will execute arp to list out the arp cache. Output will be via stdout.
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     executor:
       command: |
         arp -a
@@ -76,7 +81,9 @@ atomic_tests:
     description: |
       Identify remote systems via arp.
       Upon successful execution, sh will execute arp to list out the arp cache. Output will be via stdout.
-    supported_platforms: [linux, macos]
+    supported_platforms:
+      - linux
+      - macos
     dependency_executor_name: sh
     dependencies:
       - description: |
@@ -89,12 +96,14 @@ atomic_tests:
       command: |
         arp -a | grep -v '^?'
       name: sh
-  - name: Remote System Discovery - sweep
+  - name: Remote System Discovery - ping sweep - Linux
     auto_generated_guid: 96db2632-8417-4dbb-b8bb-a8b92ba391de
     description: |
       Identify remote systems via ping sweep.
       Upon successful execution, sh will perform a ping sweep on the 192.168.1.1/24 and echo via stdout if an IP is active.
-    supported_platforms: [linux, macos]
+    supported_platforms:
+      - linux
+      - macos
     input_arguments:
       start_host:
         description: Subnet used for ping sweep.
@@ -108,16 +117,21 @@ atomic_tests:
         description: Subnet used for ping sweep.
         type: string
         default: 192.168.1
+      timeout:
+        description: Timeout for commands in seconds
+        type: int
+        default: 10
     executor:
       command: |
-        for ip in $(seq #{start_host} #{stop_host}); do ping -c 1  #{subnet}.$ip; [ $? -eq 0 ] && echo "#{subnet}.$ip UP" || : ; done
+        (timeout #{timeout} bash -c 'for ip in $(seq #{start_host} #{stop_host}); do ping -c 1  #{subnet}.$ip; [ $? -eq 0 ] && echo "#{subnet}.$ip UP" || : ; done') || :
       name: sh
   - name: Remote System Discovery - nslookup
     auto_generated_guid: baa01aaa-5e13-45ec-8a0d-e46c93c9760f
     description: |
       Powershell script that runs nslookup on cmd.exe against the local /24 network of the first network adaptor listed in ipconfig.
       Upon successful execution, powershell will identify the ip range (via ipconfig) and perform a for loop and execute nslookup against that IP range. Output will be via stdout.
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     executor:
       command: |
         $localip = ((ipconfig | findstr [0-9].\.)[0]).Split()[-1]
@@ -134,7 +148,8 @@ atomic_tests:
       This tool enables enumeration and exporting of all DNS records in the zone for recon purposes of internal networks
       Python 3 and adidnsdump must be installed, use the get_prereq_command's to meet the prerequisites for this test.
       Successful execution of this test will list dns zones in the terminal.
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     input_arguments:
       user_name:
         description: username including domain.
@@ -178,7 +193,8 @@ atomic_tests:
     description: |
       Adfind tool can be used for reconnaissance in an Active directory environment. This example has been documented by ransomware actors enumerating Active Directory Computer Objects
       reference- http://www.joeware.net/freetools/tools/adfind/, https://www.fireeye.com/blog/threat-research/2019/04/pick-six-intercepting-a-fin6-intrusion.html
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     input_arguments:
       optional_args:
         description: Allows defining arguments to add to the adfind command to tailor
@@ -204,7 +220,8 @@ atomic_tests:
     description: |
       Adfind tool can be used for reconnaissance in an Active directory environment. This example has been documented by ransomware actors enumerating Active Directory Domain Controller Objects
       reference- http://www.joeware.net/freetools/tools/adfind/, https://www.fireeye.com/blog/threat-research/2019/04/pick-six-intercepting-a-fin6-intrusion.html
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     input_arguments:
       optional_args:
         description: Allows defining arguments to add to the adfind command to tailor
@@ -229,7 +246,8 @@ atomic_tests:
     auto_generated_guid: 158bd4dd-6359-40ab-b13c-285b9ef6fa25
     description: |
       Use the ip neighbour command to display the known link layer (ARP table) addresses for hosts sharing the same network segment. 
-    supported_platforms: [linux]
+    supported_platforms:
+      - linux
     dependency_executor_name: sh
     dependencies:
       - description: |
@@ -246,7 +264,8 @@ atomic_tests:
     auto_generated_guid: 1a4ebe70-31d0-417b-ade2-ef4cb3e7d0e1
     description: |
       Use the ip route command to display the kernels routing tables. 
-    supported_platforms: [linux]
+    supported_platforms:
+      - linux
     dependency_executor_name: sh
     dependencies:
       - description: |
@@ -263,7 +282,8 @@ atomic_tests:
     auto_generated_guid: d2791d72-b67f-4615-814f-ec824a91f514
     description: |
       Use the netstat command to display the kernels routing tables.
-    supported_platforms: [linux]
+    supported_platforms:
+      - linux
     executor:
       command: |
         netstat -r | grep default
@@ -272,7 +292,8 @@ atomic_tests:
     auto_generated_guid: 6c2da894-0b57-43cb-87af-46ea3b501388
     description: |
       Use the ip tcp_metrics command to display the recent cached entries for IPv4 and IPv6 source and destination addresses. 
-    supported_platforms: [linux]
+    supported_platforms:
+      - linux
     dependency_executor_name: sh
     dependencies:
       - description: |
@@ -292,7 +313,8 @@ atomic_tests:
       This test is designed to mimic how SessionGopher can determine the additional systems within a domain, which has been used before by threat actors to aid in lateral movement. 
       Reference: [Head Fake: Tackling Disruptive Ransomware Attacks](https://www.mandiant.com/resources/head-fake-tackling-disruptive-ransomware-attacks). 
       Upon successful execution, this test will output the names of the computers that reside on the domain to the console window. 
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     dependency_executor_name: powershell
     dependencies:
       - description: This PC must be joined to a domain.
@@ -317,7 +339,8 @@ atomic_tests:
       The following Atomic test will utilize Get-AdComputer to enumerate Computers within Active Directory.
       Upon successful execution a listing of Computers will output with their paths in AD.
       Reference: https://github.com/MicrosoftDocs/windows-powershell-docs/blob/main/docset/winserver2022-ps/activedirectory/Get-ADComputer.md
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     executor:
       name: powershell
       elevation_required: false
@@ -329,7 +352,8 @@ atomic_tests:
       The following Atomic test will utilize ADSISearcher to enumerate computers within Active Directory.
       Upon successful execution a listing of computers will output with their paths in AD.
       Reference: https://devblogs.microsoft.com/scripting/use-the-powershell-adsisearcher-type-accelerator-to-search-active-directory/
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     executor:
       name: powershell
       elevation_required: false
@@ -339,7 +363,8 @@ atomic_tests:
     auto_generated_guid: b9d2e8ca-5520-4737-8076-4f08913da2c4
     description: |
       Utilizing PowerView, run Get-DomainController to identify the Domain Controller. Upon execution, information about the domain controller within the domain will be displayed.
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     executor:
       command: |
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -351,7 +376,8 @@ atomic_tests:
       The following Atomic test will utilize get-wmiobject to enumerate Active Directory for Domain Controllers.
       Upon successful execution a listing of Systems from AD will output with their paths.
       Reference: https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-wmiobject?view=powershell-5.1
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     executor:
       name: powershell
       elevation_required: false
@@ -363,7 +389,8 @@ atomic_tests:
     description: |
       Identify remote systems with net.exe querying the Active Directory Domain Controller.
       Upon successful execution, cmd.exe will execute cmd.exe against Active Directory to list the "Domain Controller" in the domain. Output will be via stdout.
-    supported_platforms: [windows]
+    supported_platforms:
+      - windows
     executor:
       command: |
         net group /domain "Domain controllers"
@@ -372,7 +399,8 @@ atomic_tests:
     auto_generated_guid: 1e4f5b8c-b22a-48e8-8b9e-0e3fb7ab82c3
     description: |
       Detects file read events on /etc/hosts
-    supported_platforms: [linux]
+    supported_platforms:
+      - linux
     executor:
       command: cat /etc/hosts
       name: bash
