@@ -57,3 +57,28 @@ atomic_tests:
     executor:
       command: cat /etc/init.d/*
       name: bash
+
+  - name: System Service Discovery with systemctl on Linux
+    auto_generated_guid: d902beb6-b845-4e13-bdcb-8f8d6be0437d
+    description: |
+      This atomic test simulates System Service Discovery (T1007) by listing all units known to systemd on a Linux system. 
+      It uses the `systemctl list-units` command to enumerate all units, which can provide valuable information about system services, 
+      their statuses, and configurations. The output is redirected to a specified file, which should be cleaned up after the test.
+
+    supported_platforms:
+      - linux
+
+    input_arguments:
+      output_file:
+        description: The file path where the output of the `systemctl list-units` command will be saved.
+        type: String
+        default: "/tmp/atomic_red_team_t1007_output.txt"
+
+    executor:
+      name: sh
+      elevation_required: false
+      command: |
+        systemctl list-units > #{output_file}
+      cleanup_command: |
+        rm -f #{output_file}
+
