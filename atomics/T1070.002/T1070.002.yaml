@@ -12,7 +12,7 @@ atomic_tests:
     syslog_path:
       description: path of syslog file to delete. On macos it's /var/log/system.log*, on linux, it's /var/log/syslog*. Also note for File events, that on macos, /var/ is a link to /private/var/.
       type: string
-      default: /var/log/system.log
+      default: /var/log/syslog
     macos_audit_path:
       description: path of audit file to delete
       type: string
