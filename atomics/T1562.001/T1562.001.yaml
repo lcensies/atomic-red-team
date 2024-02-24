@@ -1084,3 +1084,46 @@ atomic_tests:
       Disconnect-VIServer -Confirm:$false
     name: powershell
     elevation_required: true  
+
+
+- name: Kill Process by PID
+  auto_generated_guid: a7b8c9d0-e1f2-3g4h-5i6j-7k8l9m0n1o2p
+  description: |
+    This test simulates an adversary attempting to impair defenses by using the kill command to terminate a process.
+    It demonstrates using kill to terminate a benign process created for this test.
+  supported_platforms:
+    - linux
+  dependency_executor_name: sh
+  dependencies:
+    - description: |
+        Requires bash and the ability to spawn and kill processes.
+      prereq_command: |
+        type bash && type sleep
+      get_prereq_command: |
+        # No installation required if prerequisites are not met, manual intervention needed.
+        echo "This test requires bash and sleep command."
+  executor:
+    name: bash
+    elevation_required: false
+    command: |
+      # Creating a benign background process
+      sleep 300 &
+      SLEEP_PID=$!
+      echo "Created a benign process with PID: $SLEEP_PID"
+      
+      # Using kill to terminate the process
+      kill $SLEEP_PID
+      echo "Process $SLEEP_PID terminated."
+      
+      # Verification step (not required but good for manual testing)
+      if ! ps -p $SLEEP_PID > /dev/null; then
+        echo "Process successfully terminated."
+      else
+        echo "Failed to terminate the process."
+      fi
+  cleanup_command: |
+    # Attempt to ensure the process is terminated in case of test failure or interruption
+    kill $SLEEP_PID 2>/dev/null || true
+    echo "Cleanup complete."
+
+
