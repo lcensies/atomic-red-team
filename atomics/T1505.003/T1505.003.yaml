@@ -64,16 +64,19 @@ atomic_tests:
     name: bash
     elevation_required: false
     command: |
+      # Remove existing shell to simulate dropping of a new one
+      rm -r /tmp/t1505_003 2>/dev/null
       mkdir -p /tmp/t1505_003
 
       docker stop t1505_003_container 2>/dev/null || : 
       # TODO: build image locally
       docker run --rm --name t1505_003_container -d -p 127.0.0.1:8080:80 -v "/tmp/t1505_003:/htdocs" eriksoderblom/alpine-apache-php:24.01
       
-      cp #{web_shells}/shell.php /tmp/t1505_003/shell.php
-      
       # Wait for PHP server to get ready
       sleep 3
+    
+      # Simulate web shell dropping
+      cp #{web_shells}/shell.php /tmp/t1505_003/shell.php
 
       # Host can be configured via HTTP_SERVER_NAME / HTTPS_SERVER_NAME
       # See details at https://github.com/eriksoderblom/alpine-apache-php
