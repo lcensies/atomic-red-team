@@ -1,0 +1,36 @@
+attack_technique: T1547.013
+display_name: 'Boot or Logon Autostart Execution: XDG Autostart Entries'
+atomic_tests:
+  - name: Linux - Modification of Autostart Entries
+    auto_generated_guid: ef5ffc8c-c399-43f2-8b2e-1910a493292b
+    description: |
+      Simulates the creation or modification of files in common Linux autostart directories to emulate an adversary establishing persistence.
+    supported_platforms:
+      - linux
+    dependencies:
+      - description: |
+          Access to user's home directory and/or the ability to create files in system-wide autostart directories.
+        prereq_command: |
+          [ -d ~/.config/autostart ] 
+        # || [ -d /etc/xdg/autostart ]
+        get_prereq_command: |
+          mkdir -p ~/.config/autostart && echo "User autostart directory created."
+    dependency_executor_name: bash
+    executor:
+      name: bash
+      elevation_required: false
+      command: |
+        # Example modification in the user's home autostart directory
+        echo -e '[Desktop Entry]
+        Type=Application
+        Exec=malicious_command' > ~/.config/autostart/malicious.desktop
+
+        # Example modification in the system-wide autostart directory (requires elevated permissions)
+        # echo '[Desktop Entry]
+        # Type=Application
+        # Exec=malicious_command' | sudo tee /etc/xdg/autostart/malicious.desktop > /dev/null
+        
+        echo Autostart entry is created at "~/.config/autostart/malicious.desktop"
+    cleanup_command: |
+        rm -f ~/.config/autostart/malicious.desktop
+        # sudo rm -f /etc/xdg/autostart/malicious.desktop
