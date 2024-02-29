@@ -35,6 +35,28 @@ atomic_tests:
       rm /tmp/encoded.dat 
       rm /tmp/art.sh
     name: sh
+- name: Execute Python Code via eval with Base64 Decoding
+  auto_generated_guid: 47be8c8d-0cbb-4fcf-86c9-80fabd3d712d
+  description: |
+    Executes arbitrary Python code by simulating the use of `eval` to execute base64 decoded data. This technique can be used for obfuscation and to bypass simplistic detection mechanisms.
+  supported_platforms:
+    - linux
+  dependencies:
+    - description: |
+        Requires Python to be installed on the system.
+      prereq_command: |
+        type python || type python3
+      get_prereq_command: |
+        echo "Python is not installed. Install Python to proceed." && false
+  executor:
+    name: bash
+    elevation_required: false
+    command: |
+      # Example Python command using eval with base64 decoding of a simple print statement
+      PYTHON_CMD=$(which python || which python3)
+      $PYTHON_CMD -c "eval(base64.b64decode('cHJpbnQoIkhlbGxvLCB3b3JsZCIp'))"
+      $PYTHON_CMD -c "eval(b64decode('cHJpbnQoIkV2YWwgV2l0aCBCYXNlNjQgRGVjb2RpbmciKQ=='.encode('ascii')))"
+  cleanup_command: ""
 - name: Execute base64-encoded PowerShell
   auto_generated_guid: a50d5a97-2531-499e-a1de-5544c74432c6
   description: |

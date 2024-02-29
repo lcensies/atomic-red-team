@@ -46,10 +46,8 @@
   - Atomic Test #1: Read volume boot sector via DOS device path (PowerShell) [windows]
 - T1564.008 Email Hiding Rules [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1014 Rootkit](../../T1014/T1014.md)
-  - Atomic Test #1: Loadable Kernel Module based Rootkit [linux]
-  - Atomic Test #2: Loadable Kernel Module based Rootkit [linux]
-  - Atomic Test #3: dynamic-linker based rootkit (libprocesshider) [linux]
-  - Atomic Test #4: Loadable Kernel Module based Rootkit (Diamorphine) [linux]
+  - Atomic Test #1: dynamic-linker based rootkit (libprocesshider) [linux]
+  - Atomic Test #2: Loadable Kernel Module based Rootkit (Diamorphine) [linux]
 - T1036.007 Double File Extension [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1548.002 Abuse Elevation Control Mechanism: Bypass User Account Control](../../T1548.002/T1548.002.md)
   - Atomic Test #1: Bypass UAC using Event Viewer (cmd) [windows]
@@ -77,7 +75,7 @@
   - Atomic Test #23: UAC Bypass with WSReset Registry Modification [windows]
   - Atomic Test #24: Disable UAC - Switch to the secure desktop when prompting for elevation via registry key [windows]
 - [T1548.003 Abuse Elevation Control Mechanism: Sudo and Sudo Caching](../../T1548.003/T1548.003.md)
-  - Atomic Test #1: Sudo usage [macos, linux]
+  - Atomic Test #1: List available sudo commands [macos, linux]
   - Atomic Test #2: Sudo usage (freebsd) [linux]
   - Atomic Test #3: Unlimited sudo cache timeout [macos, linux]
   - Atomic Test #4: Unlimited sudo cache timeout (freebsd) [linux]
@@ -295,9 +293,10 @@
   - Atomic Test #17: Tail the UFW firewall log file [linux]
   - Atomic Test #18: Disable iptables [linux]
   - Atomic Test #19: Modify/delete iptables firewall rules [linux]
-  - Atomic Test #20: LockBit Black - Unusual Windows firewall registry modification -cmd [windows]
-  - Atomic Test #21: LockBit Black - Unusual Windows firewall registry modification -Powershell [windows]
-  - Atomic Test #22: Blackbit - Disable Windows Firewall using netsh firewall [windows]
+  - Atomic Test #20: Accept incoming traffic to specified port via iptables [linux]
+  - Atomic Test #21: LockBit Black - Unusual Windows firewall registry modification -cmd [windows]
+  - Atomic Test #22: LockBit Black - Unusual Windows firewall registry modification -Powershell [windows]
+  - Atomic Test #23: Blackbit - Disable Windows Firewall using netsh firewall [windows]
 - [T1553.003 Subvert Trust Controls: SIP and Trust Provider Hijacking](../../T1553.003/T1553.003.md)
   - Atomic Test #1: SIP (Subject Interface Package) Hijacking via Custom DLL [windows]
 - T1556.007 Hybrid Identity [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -578,6 +577,7 @@
   - Atomic Test #48: Tamper with Windows Defender Registry - Reg.exe [windows]
   - Atomic Test #49: Tamper with Windows Defender Registry - Powershell [windows]
   - Atomic Test #50: ESXi - Disable Account Lockout Policy via PowerCLI [linux]
+  - Atomic Test #51: Linux - Kill Process by PID [linux]
 - T1601 Modify System Image [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1574 Hijack Execution Flow [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1027.005 Indicator Removal from Tools [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -590,15 +590,16 @@
 - T1564.009 Resource Forking [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1027 Obfuscated Files or Information](../../T1027/T1027.md)
   - Atomic Test #1: Decode base64 Data into Script [macos, linux]
-  - Atomic Test #2: Execute base64-encoded PowerShell [windows]
-  - Atomic Test #3: Execute base64-encoded PowerShell from Windows Registry [windows]
-  - Atomic Test #4: Execution from Compressed File [windows]
-  - Atomic Test #5: DLP Evasion via Sensitive Data in VBA Macro over email [windows]
-  - Atomic Test #6: DLP Evasion via Sensitive Data in VBA Macro over HTTP [windows]
-  - Atomic Test #7: Obfuscated Command in PowerShell [windows]
-  - Atomic Test #8: Obfuscated Command Line using special Unicode characters [windows]
-  - Atomic Test #9: Snake Malware Encrypted crmlog file [windows]
-  - Atomic Test #10: Execution from Compressed JScript File [windows]
+  - Atomic Test #2: Execute Python Code via eval with Base64 Decoding [linux]
+  - Atomic Test #3: Execute base64-encoded PowerShell [windows]
+  - Atomic Test #4: Execute base64-encoded PowerShell from Windows Registry [windows]
+  - Atomic Test #5: Execution from Compressed File [windows]
+  - Atomic Test #6: DLP Evasion via Sensitive Data in VBA Macro over email [windows]
+  - Atomic Test #7: DLP Evasion via Sensitive Data in VBA Macro over HTTP [windows]
+  - Atomic Test #8: Obfuscated Command in PowerShell [windows]
+  - Atomic Test #9: Obfuscated Command Line using special Unicode characters [windows]
+  - Atomic Test #10: Snake Malware Encrypted crmlog file [windows]
+  - Atomic Test #11: Execution from Compressed JScript File [windows]
 - T1556.006 Multi-Factor Authentication [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1036.001 Invalid Code Signature [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1564.006 Run Virtual Instance](../../T1564.006/T1564.006.md)
@@ -832,7 +833,7 @@
   - Atomic Test #23: UAC Bypass with WSReset Registry Modification [windows]
   - Atomic Test #24: Disable UAC - Switch to the secure desktop when prompting for elevation via registry key [windows]
 - [T1548.003 Abuse Elevation Control Mechanism: Sudo and Sudo Caching](../../T1548.003/T1548.003.md)
-  - Atomic Test #1: Sudo usage [macos, linux]
+  - Atomic Test #1: List available sudo commands [macos, linux]
   - Atomic Test #2: Sudo usage (freebsd) [linux]
   - Atomic Test #3: Unlimited sudo cache timeout [macos, linux]
   - Atomic Test #4: Unlimited sudo cache timeout (freebsd) [linux]
@@ -860,6 +861,7 @@
   - Atomic Test #2: Cron - Add script to all cron subfolders [macos, linux]
   - Atomic Test #3: Cron - Add script to /etc/cron.d folder [linux]
   - Atomic Test #4: Cron - Add script to /var/spool/cron/crontabs/ folder [linux]
+  - Atomic Test #5: Cron Service Manipulation [linux]
 - [T1098.003 Account Manipulation: Additional Cloud Roles](../../T1098.003/T1098.003.md)
   - Atomic Test #1: Azure AD - Add Company Administrator Role to a user [azure-ad]
   - Atomic Test #2: Simulate - Post BEC persistence via user password reset followed by user added to company administrator role [azure-ad]
@@ -1034,9 +1036,10 @@
   - Atomic Test #17: GCP - Delete Service Account Key [iaas:gcp]
 - [T1547.006 Boot or Logon Autostart Execution: Kernel Modules and Extensions](../../T1547.006/T1547.006.md)
   - Atomic Test #1: Linux - Load Kernel Module via insmod [linux]
-  - Atomic Test #2: MacOS - Load Kernel Module via kextload and kmutil [macos]
-  - Atomic Test #3: MacOS - Load Kernel Module via KextManagerLoadKextWithURL() [macos]
-  - Atomic Test #4: Snake Malware Kernel Driver Comadmin [windows]
+  - Atomic Test #2: Linux - Load Kernel Module via modprobe [linux]
+  - Atomic Test #3: MacOS - Load Kernel Module via kextload and kmutil [macos]
+  - Atomic Test #4: MacOS - Load Kernel Module via KextManagerLoadKextWithURL() [macos]
+  - Atomic Test #5: Snake Malware Kernel Driver Comadmin [windows]
 - T1574.013 KernelCallbackTable [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1053.006 Scheduled Task/Job: Systemd Timers](../../T1053.006/T1053.006.md)
   - Atomic Test #1: Create Systemd Service and Timer [linux]
@@ -1097,7 +1100,8 @@
   - Atomic Test #1: Create Systemd Service [linux]
   - Atomic Test #2: Create SysV Service [linux]
   - Atomic Test #3: Create Systemd Service file,  Enable the service , Modify and Reload the service. [linux]
-- T1547.013 XDG Autostart Entries [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1547.013 Boot or Logon Autostart Execution: XDG Autostart Entries](../../T1547.013/T1547.013.md)
+  - Atomic Test #1: Linux - Modification of Autostart Entries [linux]
 - T1055.005 Thread Local Storage [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1547.007 Boot or Logon Autostart Execution: Re-opened Applications](../../T1547.007/T1547.007.md)
   - Atomic Test #1: Copy in loginwindow.plist for Re-Opened Applications [macos]
@@ -1199,6 +1203,7 @@
   - Atomic Test #2: Cron - Add script to all cron subfolders [macos, linux]
   - Atomic Test #3: Cron - Add script to /etc/cron.d folder [linux]
   - Atomic Test #4: Cron - Add script to /var/spool/cron/crontabs/ folder [linux]
+  - Atomic Test #5: Cron Service Manipulation [linux]
 - T1559.001 Component Object Model [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1053 Scheduled Task/Job [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1059.002 Command and Scripting Interpreter: AppleScript](../../T1059.002/T1059.002.md)
@@ -1356,6 +1361,7 @@
   - Atomic Test #2: Cron - Add script to all cron subfolders [macos, linux]
   - Atomic Test #3: Cron - Add script to /etc/cron.d folder [linux]
   - Atomic Test #4: Cron - Add script to /var/spool/cron/crontabs/ folder [linux]
+  - Atomic Test #5: Cron Service Manipulation [linux]
 - [T1137 Office Application Startup](../../T1137/T1137.md)
   - Atomic Test #1: Office Application Startup - Outlook as a C2 [windows]
 - [T1098.003 Account Manipulation: Additional Cloud Roles](../../T1098.003/T1098.003.md)
@@ -1410,6 +1416,7 @@
   - Atomic Test #1: powerShell Persistence via hijacking default modules - Get-Variable.exe [windows]
 - [T1505.003 Server Software Component: Web Shell](../../T1505.003/T1505.003.md)
   - Atomic Test #1: Web Shell Written to Disk [windows]
+  - Atomic Test #2: Invoke Web Shell in Dockerized PHP Server [linux]
 - [T1078.001 Valid Accounts: Default Accounts](../../T1078.001/T1078.001.md)
   - Atomic Test #1: Enable Guest account with RDP capability and admin privileges [windows]
   - Atomic Test #2: Activate Guest Account [windows]
@@ -1526,9 +1533,10 @@
   - Atomic Test #17: GCP - Delete Service Account Key [iaas:gcp]
 - [T1547.006 Boot or Logon Autostart Execution: Kernel Modules and Extensions](../../T1547.006/T1547.006.md)
   - Atomic Test #1: Linux - Load Kernel Module via insmod [linux]
-  - Atomic Test #2: MacOS - Load Kernel Module via kextload and kmutil [macos]
-  - Atomic Test #3: MacOS - Load Kernel Module via KextManagerLoadKextWithURL() [macos]
-  - Atomic Test #4: Snake Malware Kernel Driver Comadmin [windows]
+  - Atomic Test #2: Linux - Load Kernel Module via modprobe [linux]
+  - Atomic Test #3: MacOS - Load Kernel Module via kextload and kmutil [macos]
+  - Atomic Test #4: MacOS - Load Kernel Module via KextManagerLoadKextWithURL() [macos]
+  - Atomic Test #5: Snake Malware Kernel Driver Comadmin [windows]
 - T1574.013 KernelCallbackTable [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1053.006 Scheduled Task/Job: Systemd Timers](../../T1053.006/T1053.006.md)
   - Atomic Test #1: Create Systemd Service and Timer [linux]
@@ -1595,7 +1603,8 @@
   - Atomic Test #2: Create SysV Service [linux]
   - Atomic Test #3: Create Systemd Service file,  Enable the service , Modify and Reload the service. [linux]
 - T1136 Create Account [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
-- T1547.013 XDG Autostart Entries [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1547.013 Boot or Logon Autostart Execution: XDG Autostart Entries](../../T1547.013/T1547.013.md)
+  - Atomic Test #1: Linux - Modification of Autostart Entries [linux]
 - [T1547.007 Boot or Logon Autostart Execution: Re-opened Applications](../../T1547.007/T1547.007.md)
   - Atomic Test #1: Copy in loginwindow.plist for Re-Opened Applications [macos]
   - Atomic Test #2: Re-Opened Applications using LoginHook [macos]
@@ -1802,6 +1811,7 @@
   - Atomic Test #2: Automated Collection PowerShell [windows]
   - Atomic Test #3: Recon information for export with PowerShell [windows]
   - Atomic Test #4: Recon information for export with Command Prompt [windows]
+  - Atomic Test #5: Execute Command via Cron Job with find and -exec [linux]
 - [T1115 Clipboard Data](../../T1115/T1115.md)
   - Atomic Test #1: Utilize Clipboard to store or execute commands from [windows]
   - Atomic Test #2: Execute Commands from Clipboard using PowerShell [windows]
@@ -1860,7 +1870,8 @@
 - [T1091 Replication Through Removable Media](../../T1091/T1091.md)
   - Atomic Test #1: USB Malware Spread Simulation [windows]
 - T1021.008 Direct Cloud VM Connections [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
-- T1563.001 SSH Hijacking [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1563.001 Remote Service Session Hijacking: SSH Hijacking](../../T1563.001/T1563.001.md)
+  - Atomic Test #1: SSH Session Hijacking via SSH_AUTH_SOCK [linux]
 - [T1021.002 Remote Services: SMB/Windows Admin Shares](../../T1021.002/T1021.002.md)
   - Atomic Test #1: Map admin share [windows]
   - Atomic Test #2: Map Admin Share PowerShell [windows]
@@ -1888,6 +1899,7 @@
 - [T1570 Lateral Tool Transfer](../../T1570/T1570.md)
   - Atomic Test #1: Exfiltration Over SMB over QUIC (New-SmbMapping) [windows]
   - Atomic Test #2: Exfiltration Over SMB over QUIC (NET USE) [windows]
+  - Atomic Test #3: Linux - Transfer Tool from external drive [linux]
 - T1550.004 Web Session Cookie [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1563.002 Remote Service Session Hijacking: RDP Hijacking](../../T1563.002/T1563.002.md)
   - Atomic Test #1: RDP hijacking [windows]
@@ -2243,6 +2255,7 @@
   - Atomic Test #3: System Service Discovery - systemctl/service [linux]
   - Atomic Test #4: System Service Discovery - service/status-all [linux]
   - Atomic Test #5: File Read - /etc/init.d [linux]
+  - Atomic Test #6: System Service Discovery with systemctl on Linux [linux]
 - [T1040 Network Sniffing](../../T1040/T1040.md)
   - Atomic Test #1: Packet Capture Linux using tshark or tcpdump [linux]
   - Atomic Test #2: Packet Capture FreeBSD using tshark or tcpdump [linux]
@@ -2419,16 +2432,19 @@
   - Atomic Test #8: Security Software Discovery - AV Discovery via Get-CimInstance and Get-WmiObject cmdlets [windows]
   - Atomic Test #9: Security Software Discovery - Windows Defender Enumeration [windows]
   - Atomic Test #10: Security Software Discovery - Windows Firewall Enumeration [windows]
+  - Atomic Test #11: Security Software Discovery - Access SELinux Configuration Files [linux]
+  - Atomic Test #12: Security Software Discovery - Get SELinux status via getenforce [linux]
+  - Atomic Test #13: Security Software Discovery - ClamAV service [linux]
 - [T1526 Cloud Service Discovery](../../T1526/T1526.md)
   - Atomic Test #1: Azure - Dump Subscription Data with MicroBurst [iaas:azure]
 - [T1018 Remote System Discovery](../../T1018/T1018.md)
   - Atomic Test #1: Remote System Discovery - net [windows]
   - Atomic Test #2: Remote System Discovery - net group Domain Computers [windows]
   - Atomic Test #3: Remote System Discovery - nltest [windows]
-  - Atomic Test #4: Remote System Discovery - ping sweep [windows]
+  - Atomic Test #4: Remote System Discovery - ping sweep - Windows [windows]
   - Atomic Test #5: Remote System Discovery - arp [windows]
   - Atomic Test #6: Remote System Discovery - arp nix [linux, macos]
-  - Atomic Test #7: Remote System Discovery - sweep [linux, macos]
+  - Atomic Test #7: Remote System Discovery - ping sweep - Linux [linux, macos]
   - Atomic Test #8: Remote System Discovery - nslookup [windows]
   - Atomic Test #9: Remote System Discovery - adidnsdump [windows]
   - Atomic Test #10: Adfind - Enumerate Active Directory Computer Objects [windows]
@@ -2456,12 +2472,6 @@
   - Atomic Test #9: Network Service Discovery for Containers [containers]
   - Atomic Test #10: Port-Scanning /24 Subnet with PowerShell [windows]
 - [T1518 Software Discovery](../../T1518/T1518.md)
-  - Atomic Test #1: Find and Display Internet Explorer Browser Version [windows]
-  - Atomic Test #2: Applications Installed [windows]
-  - Atomic Test #3: Find and Display Safari Browser Version [macos]
-  - Atomic Test #4: WinPwn - Dotnetsearch [windows]
-  - Atomic Test #5: WinPwn - DotNet [windows]
-  - Atomic Test #6: WinPwn - powerSQL [windows]
 - T1538 Cloud Service Dashboard [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1622 Debugger Evasion [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1124 System Time Discovery](../../T1124/T1124.md)

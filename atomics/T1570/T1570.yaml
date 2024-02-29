@@ -51,3 +51,47 @@ atomic_tests:
       copy '#{local_file}' '*:\'
     name: powershell
     elevation_required: true
+
+- name: Linux - Transfer Tool from external drive
+  auto_generated_guid: 77dc31fe-1114-4cde-8022-df3e76ac00ec
+  description: |
+    Simulates the transfer of a malicious tool or file from a loopback device mounted as an external device to the system.
+  supported_platforms:
+  - linux
+  dependencies:
+  - description: |
+      Requires sudo privileges to create and delete a loopback device.
+    prereq_command: |
+      [ -d /mnt/badusb ] 
+    get_prereq_command: |
+      sudo mkdir -p /mnt/badusb
+      # Create a loopback device simulating an external USB
+      dd if=/dev/zero of=/tmp/badusb.img bs=1M count=10
+      sudo losetup -fP /tmp/badusb.img
+      LOOP_DEV=$(sudo losetup | grep badusb.img | awk '{print $1}')
+      sudo mkfs.ext4 $LOOP_DEV
+      
+  dependency_executor_name: sh
+  executor:
+    name: sh
+    elevation_required: true
+    command: |
+
+      LOOP_DEV=$(sudo losetup | grep badusb.img | awk '{print $1}')
+      # Mount to temporarily place malicious file
+      sudo mount $LOOP_DEV /mnt/badusb
+      # Preload the malicious file onto the simulated external drive
+      sudo sh -c 'echo "Malicious content" > /mnt/badusb/malicious_file'
+      sudo umount /mnt/badusb
+      
+      # Remount for test
+      sudo mount $LOOP_DEV /mnt/badusb
+      # Simulate transferring the preloaded malicious tool or file
+      sudo cp /mnt/badusb/malicious_file /tmp/malicious_file
+
+      sudo cat /tmp/malicious_file
+  cleanup_command: |
+      # Clean up
+      sudo umount /mnt/badusb
+      sudo losetup -d $(sudo losetup | grep badusb.img | awk '{print $1}')
+      sudo rm -rf /tmp/malicious_file /tmp/badusb.img /mnt/badusb

@@ -68,7 +68,7 @@ atomic_tests:
 
       docker stop web_shell_test 2>/dev/null || : 
       # TODO: build image locally
-      docker run --rm --name web_shell_test -d -p 127.0.0.1:8080:80 -v "/tmp/t1505_003:/htdocs" eriksoderblom/alpine-apache-php:24.01
+      docker run --rm --name t1505_003_container -d -p 127.0.0.1:8080:80 -v "/tmp/t1505_003:/htdocs" eriksoderblom/alpine-apache-php:24.01
       
       cp #{web_shells}/shell.php /tmp/t1505_003/shell.php
       
@@ -81,8 +81,7 @@ atomic_tests:
         -G --data-urlencode "cmd=#{web_shell_cmd}"
 
 
-      docker stop web_shell_test
-  cleanup_command: |
+      docker stop t1505_003_container
+    cleanup_command: |
       rm -r /tmp/t1505_003
       docker rmi eriksoderblom/alpine-apache-php:24.01
-      # Consider removing image

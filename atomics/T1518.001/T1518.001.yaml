@@ -152,3 +152,60 @@ atomic_tests:
       Get-NetFirewallRule | select DisplayName, Enabled, Description
     name: powershell 
     elevation_required: true
+- name: Security Software Discovery - Access SELinux Configuration Files
+  auto_generated_guid: 76756836-b5a8-4c6c-8926-8bccb06db3b0
+  description: |
+    Attempts to read the SELinux configuration files to simulate an adversary's behavior trying to discover or alter SELinux policies.
+  supported_platforms:
+    - linux
+  dependency_executor_name: bash
+  executor:
+    name: bash
+    elevation_required: false
+    command: |
+      cat /etc/sysconfig/selinux
+      cat /etc/selinux/config
+  cleanup_command: ""
+  dependencies:
+  - description: |
+      SELinux must be installed
+    prereq_command: |
+      which setenforce
+    get_prereq_command: |
+      echo "SELinux is not installed"; exit 1
+
+- name: Security Software Discovery - Get SELinux status via getenforce
+  auto_generated_guid: 3fce2ceb-6e66-474d-8f43-971973565cbb
+  description: |
+    Attempts to read the SELinux configuration files to simulate an adversary's behavior trying to discover or alter SELinux policies.
+  supported_platforms:
+    - linux
+  dependency_executor_name: bash
+  executor:
+    name: bash
+    elevation_required: false
+    command: |
+      getenforce sestatus
+  cleanup_command: ""
+  dependencies:
+  - description: |
+      SELinux must be installed
+    prereq_command: |
+      which setenforce
+    get_prereq_command: |
+      echo "SELinux is not installed"; exit 1
+
+- name: Security Software Discovery - ClamAV service
+  auto_generated_guid: ebd49569-67cd-4499-8418-8d83587f6857
+  description: |
+    Attempts to check the status of ClamAV service to simulate an adversary's behavior trying to discover whether ClamAV is installed on target host.
+  supported_platforms:
+    - linux
+  dependency_executor_name: sh
+  executor:
+    name: sh
+    elevation_required: false
+    command: |
+      systemctl status clamd || true
+      systemctl status clamav-daemon || true
+  cleanup_command: ""

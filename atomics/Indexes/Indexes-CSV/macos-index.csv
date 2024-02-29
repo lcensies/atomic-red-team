@@ -10,7 +10,7 @@ defense-evasion,T1222.002,"File and Directory Permissions Modification: FreeBSD,
 defense-evasion,T1222.002,"File and Directory Permissions Modification: FreeBSD, Linux and Mac File and Directory Permissions Modification",9,chattr - Remove immutable file attribute,e7469fe2-ad41-4382-8965-99b94dd3c13f,sh
 defense-evasion,T1222.002,"File and Directory Permissions Modification: FreeBSD, Linux and Mac File and Directory Permissions Modification",11,Chmod through c script,973631cf-6680-4ffa-a053-045e1b6b67ab,sh
 defense-evasion,T1222.002,"File and Directory Permissions Modification: FreeBSD, Linux and Mac File and Directory Permissions Modification",13,Chown through c script,18592ba1-5f88-4e3c-abc8-ab1c6042e389,sh
-defense-evasion,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,1,Sudo usage,150c3a08-ee6e-48a6-aeaf-3659d24ceb4e,sh
+defense-evasion,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,1,List available sudo commands,150c3a08-ee6e-48a6-aeaf-3659d24ceb4e,sh
 defense-evasion,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,3,Unlimited sudo cache timeout,a7b17659-dd5e-46f7-b7d1-e6792c91d0bc,sh
 defense-evasion,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,5,Disable tty_tickets for sudo caching,91a60b03-fb75-4d24-a42e-2eb8956e8de1,sh
 defense-evasion,T1036.005,Masquerading: Match Legitimate Name or Location,1,Execute a process from a directory masquerading as the current parent directory.,812c3ab8-94b0-4698-a9bf-9420af23ce24,sh
@@ -102,8 +102,8 @@ persistence,T1136.001,Create Account: Local Account,3,Create a user account on a
 persistence,T1098.004,SSH Authorized Keys,1,Modify SSH Authorized Keys,342cc723-127c-4d3a-8292-9c0c6b4ecadc,sh
 persistence,T1547.015,Boot or Logon Autostart Execution: Login Items,2,Add macOS LoginItem using Applescript,716e756a-607b-41f3-8204-b214baf37c1d,bash
 persistence,T1546.014,Event Triggered Execution: Emond,1,Persistance with Event Monitor - emond,23c9c127-322b-4c75-95ca-eff464906114,sh
-persistence,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,2,MacOS - Load Kernel Module via kextload and kmutil,f4391089-d3a5-4dd1-ab22-0419527f2672,bash
-persistence,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,3,MacOS - Load Kernel Module via KextManagerLoadKextWithURL(),f0007753-beb3-41ea-9948-760785e4c1e5,bash
+persistence,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,3,MacOS - Load Kernel Module via kextload and kmutil,f4391089-d3a5-4dd1-ab22-0419527f2672,bash
+persistence,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,4,MacOS - Load Kernel Module via KextManagerLoadKextWithURL(),f0007753-beb3-41ea-9948-760785e4c1e5,bash
 persistence,T1546.004,Event Triggered Execution: .bash_profile .bashrc and .shrc,1,Add command to .bash_profile,94500ae1-7e31-47e3-886b-c328da46872f,sh
 persistence,T1546.004,Event Triggered Execution: .bash_profile .bashrc and .shrc,2,Add command to .bashrc,0a898315-4cfa-4007-bafe-33a4646d115f,sh
 persistence,T1037.005,Boot or Logon Initialization Scripts: Startup Items,1,Add file to Local Library StartupItems,134627c3-75db-410e-bff8-7a920075f198,sh
@@ -144,7 +144,7 @@ collection,T1115,Clipboard Data,3,Execute commands from clipboard,1ac2247f-65f8-
 collection,T1056.002,Input Capture: GUI Input Capture,1,AppleScript - Prompt User for Password,76628574-0bc1-4646-8fe2-8f4427b47d15,bash
 collection,T1056.002,Input Capture: GUI Input Capture,3,AppleScript - Spoofing a credential prompt using osascript,b7037b89-947a-427a-ba29-e7e9f09bc045,bash
 lateral-movement,T1021.005,Remote Services:VNC,1,Enable Apple Remote Desktop Agent,8a930abe-841c-4d4f-a877-72e9fe90b9ea,sh
-privilege-escalation,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,1,Sudo usage,150c3a08-ee6e-48a6-aeaf-3659d24ceb4e,sh
+privilege-escalation,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,1,List available sudo commands,150c3a08-ee6e-48a6-aeaf-3659d24ceb4e,sh
 privilege-escalation,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,3,Unlimited sudo cache timeout,a7b17659-dd5e-46f7-b7d1-e6792c91d0bc,sh
 privilege-escalation,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,5,Disable tty_tickets for sudo caching,91a60b03-fb75-4d24-a42e-2eb8956e8de1,sh
 privilege-escalation,T1053.003,Scheduled Task/Job: Cron,1,Cron - Replace crontab with referenced file,435057fb-74b1-410e-9403-d81baf194f75,sh
@@ -161,8 +161,8 @@ privilege-escalation,T1548.001,Abuse Elevation Control Mechanism: Setuid and Set
 privilege-escalation,T1098.004,SSH Authorized Keys,1,Modify SSH Authorized Keys,342cc723-127c-4d3a-8292-9c0c6b4ecadc,sh
 privilege-escalation,T1547.015,Boot or Logon Autostart Execution: Login Items,2,Add macOS LoginItem using Applescript,716e756a-607b-41f3-8204-b214baf37c1d,bash
 privilege-escalation,T1546.014,Event Triggered Execution: Emond,1,Persistance with Event Monitor - emond,23c9c127-322b-4c75-95ca-eff464906114,sh
-privilege-escalation,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,2,MacOS - Load Kernel Module via kextload and kmutil,f4391089-d3a5-4dd1-ab22-0419527f2672,bash
-privilege-escalation,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,3,MacOS - Load Kernel Module via KextManagerLoadKextWithURL(),f0007753-beb3-41ea-9948-760785e4c1e5,bash
+privilege-escalation,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,3,MacOS - Load Kernel Module via kextload and kmutil,f4391089-d3a5-4dd1-ab22-0419527f2672,bash
+privilege-escalation,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,4,MacOS - Load Kernel Module via KextManagerLoadKextWithURL(),f0007753-beb3-41ea-9948-760785e4c1e5,bash
 privilege-escalation,T1546.004,Event Triggered Execution: .bash_profile .bashrc and .shrc,1,Add command to .bash_profile,94500ae1-7e31-47e3-886b-c328da46872f,sh
 privilege-escalation,T1546.004,Event Triggered Execution: .bash_profile .bashrc and .shrc,2,Add command to .bashrc,0a898315-4cfa-4007-bafe-33a4646d115f,sh
 privilege-escalation,T1037.005,Boot or Logon Initialization Scripts: Startup Items,1,Add file to Local Library StartupItems,134627c3-75db-410e-bff8-7a920075f198,sh
@@ -227,10 +227,9 @@ discovery,T1069.001,Permission Groups Discovery: Local Groups,1,Permission Group
 discovery,T1201,Password Policy Discovery,8,Examine password policy - macOS,4b7fa042-9482-45e1-b348-4b756b2a0742,bash
 discovery,T1518.001,Software Discovery: Security Software Discovery,3,Security Software Discovery - ps (macOS),ba62ce11-e820-485f-9c17-6f3c857cd840,sh
 discovery,T1018,Remote System Discovery,6,Remote System Discovery - arp nix,acb6b1ff-e2ad-4d64-806c-6c35fe73b951,sh
-discovery,T1018,Remote System Discovery,7,Remote System Discovery - sweep,96db2632-8417-4dbb-b8bb-a8b92ba391de,sh
+discovery,T1018,Remote System Discovery,7,Remote System Discovery - ping sweep - Linux,96db2632-8417-4dbb-b8bb-a8b92ba391de,sh
 discovery,T1046,Network Service Discovery,1,Port Scan,68e907da-2539-48f6-9fc9-257a78c05540,bash
 discovery,T1046,Network Service Discovery,2,Port Scan Nmap,515942b0-a09f-4163-a7bb-22fefb6f185f,sh
-discovery,T1518,Software Discovery,3,Find and Display Safari Browser Version,103d6533-fd2a-4d08-976a-4a598565280f,sh
 execution,T1053.003,Scheduled Task/Job: Cron,1,Cron - Replace crontab with referenced file,435057fb-74b1-410e-9403-d81baf194f75,sh
 execution,T1053.003,Scheduled Task/Job: Cron,2,Cron - Add script to all cron subfolders,b7d42afa-9086-4c8a-b7b0-8ea3faa6ebb0,bash
 execution,T1059.002,Command and Scripting Interpreter: AppleScript,1,AppleScript,3600d97d-81b9-4171-ab96-e4386506e2c2,sh

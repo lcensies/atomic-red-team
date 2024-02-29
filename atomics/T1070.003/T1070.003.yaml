@@ -179,5 +179,5 @@ atomic_tests:
     command: |
       Set-PSReadLineOption -AddToHistoryHandler { return $false }
     cleanup_command: |
-      Set-PSReadLineOption -AddToHistoryHandler $null
+        Set-PSReadLineOption -AddToHistoryHandler $null
     name: powershell

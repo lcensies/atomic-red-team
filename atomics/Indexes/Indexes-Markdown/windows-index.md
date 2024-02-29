@@ -188,9 +188,9 @@
   - Atomic Test #4: Opening ports for proxy - HARDRAIN [windows]
   - Atomic Test #5: Open a local port through Windows Firewall to any profile [windows]
   - Atomic Test #6: Allow Executable Through Firewall Located in Non-Standard Location [windows]
-  - Atomic Test #20: LockBit Black - Unusual Windows firewall registry modification -cmd [windows]
-  - Atomic Test #21: LockBit Black - Unusual Windows firewall registry modification -Powershell [windows]
-  - Atomic Test #22: Blackbit - Disable Windows Firewall using netsh firewall [windows]
+  - Atomic Test #21: LockBit Black - Unusual Windows firewall registry modification -cmd [windows]
+  - Atomic Test #22: LockBit Black - Unusual Windows firewall registry modification -Powershell [windows]
+  - Atomic Test #23: Blackbit - Disable Windows Firewall using netsh firewall [windows]
 - [T1553.003 Subvert Trust Controls: SIP and Trust Provider Hijacking](../../T1553.003/T1553.003.md)
   - Atomic Test #1: SIP (Subject Interface Package) Hijacking via Custom DLL [windows]
 - T1556.007 Hybrid Identity [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -410,15 +410,15 @@
   - Atomic Test #3: Process Hollowing in Go using CreateProcessW WinAPI [windows]
   - Atomic Test #4: Process Hollowing in Go using CreateProcessW and CreatePipe WinAPIs (T1055.012) [windows]
 - [T1027 Obfuscated Files or Information](../../T1027/T1027.md)
-  - Atomic Test #2: Execute base64-encoded PowerShell [windows]
-  - Atomic Test #3: Execute base64-encoded PowerShell from Windows Registry [windows]
-  - Atomic Test #4: Execution from Compressed File [windows]
-  - Atomic Test #5: DLP Evasion via Sensitive Data in VBA Macro over email [windows]
-  - Atomic Test #6: DLP Evasion via Sensitive Data in VBA Macro over HTTP [windows]
-  - Atomic Test #7: Obfuscated Command in PowerShell [windows]
-  - Atomic Test #8: Obfuscated Command Line using special Unicode characters [windows]
-  - Atomic Test #9: Snake Malware Encrypted crmlog file [windows]
-  - Atomic Test #10: Execution from Compressed JScript File [windows]
+  - Atomic Test #3: Execute base64-encoded PowerShell [windows]
+  - Atomic Test #4: Execute base64-encoded PowerShell from Windows Registry [windows]
+  - Atomic Test #5: Execution from Compressed File [windows]
+  - Atomic Test #6: DLP Evasion via Sensitive Data in VBA Macro over email [windows]
+  - Atomic Test #7: DLP Evasion via Sensitive Data in VBA Macro over HTTP [windows]
+  - Atomic Test #8: Obfuscated Command in PowerShell [windows]
+  - Atomic Test #9: Obfuscated Command Line using special Unicode characters [windows]
+  - Atomic Test #10: Snake Malware Encrypted crmlog file [windows]
+  - Atomic Test #11: Execution from Compressed JScript File [windows]
 - T1556.006 Multi-Factor Authentication [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1036.001 Invalid Code Signature [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1564.006 Run Virtual Instance](../../T1564.006/T1564.006.md)
@@ -1667,7 +1667,7 @@
   - Atomic Test #1: Remote System Discovery - net [windows]
   - Atomic Test #2: Remote System Discovery - net group Domain Computers [windows]
   - Atomic Test #3: Remote System Discovery - nltest [windows]
-  - Atomic Test #4: Remote System Discovery - ping sweep [windows]
+  - Atomic Test #4: Remote System Discovery - ping sweep - Windows [windows]
   - Atomic Test #5: Remote System Discovery - arp [windows]
   - Atomic Test #8: Remote System Discovery - nslookup [windows]
   - Atomic Test #9: Remote System Discovery - adidnsdump [windows]
@@ -1688,11 +1688,6 @@
   - Atomic Test #8: WinPwn - fruit [windows]
   - Atomic Test #10: Port-Scanning /24 Subnet with PowerShell [windows]
 - [T1518 Software Discovery](../../T1518/T1518.md)
-  - Atomic Test #1: Find and Display Internet Explorer Browser Version [windows]
-  - Atomic Test #2: Applications Installed [windows]
-  - Atomic Test #4: WinPwn - Dotnetsearch [windows]
-  - Atomic Test #5: WinPwn - DotNet [windows]
-  - Atomic Test #6: WinPwn - powerSQL [windows]
 - T1622 Debugger Evasion [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1124 System Time Discovery](../../T1124/T1124.md)
   - Atomic Test #1: System Time Discovery [windows]

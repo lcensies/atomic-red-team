@@ -21325,7 +21325,7 @@ privilege-escalation:
   T1547.013:
     technique:
       modified: '2023-10-16T16:35:12.501Z'
-      name: XDG Autostart Entries
+      name: 'Boot or Logon Autostart Execution: XDG Autostart Entries'
       description: |-
         Adversaries may add or modify XDG Autostart Entries to execute malicious programs or commands when a user’s desktop environment is loaded at login. XDG Autostart entries are available for any XDG-compliant Linux system. XDG Autostart entries use Desktop Entry files (`.desktop`) to configure the user’s desktop environment upon user login. These configuration files determine what applications launch upon user login, define associated applications to open specific file types, and define applications used to open removable media.(Citation: Free Desktop Application Autostart Feb 2006)(Citation: Free Desktop Entry Keys)
 
@@ -21389,6 +21389,7 @@ privilege-escalation:
       - marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168
       x_mitre_attack_spec_version: 3.2.0
       x_mitre_modified_by_ref: identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5
+      identifier: T1547.013
     atomic_tests: []
   T1055.005:
     technique:
@@ -32914,7 +32915,7 @@ persistence:
   T1547.013:
     technique:
       modified: '2023-10-16T16:35:12.501Z'
-      name: XDG Autostart Entries
+      name: 'Boot or Logon Autostart Execution: XDG Autostart Entries'
       description: |-
         Adversaries may add or modify XDG Autostart Entries to execute malicious programs or commands when a user’s desktop environment is loaded at login. XDG Autostart entries are available for any XDG-compliant Linux system. XDG Autostart entries use Desktop Entry files (`.desktop`) to configure the user’s desktop environment upon user login. These configuration files determine what applications launch upon user login, define associated applications to open specific file types, and define applications used to open removable media.(Citation: Free Desktop Application Autostart Feb 2006)(Citation: Free Desktop Entry Keys)
 
@@ -32978,6 +32979,7 @@ persistence:
       - marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168
       x_mitre_attack_spec_version: 3.2.0
       x_mitre_modified_by_ref: identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5
+      identifier: T1547.013
     atomic_tests: []
   T1547.007:
     technique:
@@ -39221,7 +39223,7 @@ lateral-movement:
         description: Hodgson, M. (2019, May 8). Post-mortem and remediations for Apr
           11 security incident. Retrieved February 17, 2020.
       modified: '2020-03-23T23:11:24.682Z'
-      name: SSH Hijacking
+      name: 'Remote Service Session Hijacking: SSH Hijacking'
       description: |-
         Adversaries may hijack a legitimate user's SSH session to move laterally within an environment. Secure Shell (SSH) is a standard means of remote access on Linux and macOS systems. It allows a user to connect to another system via an encrypted tunnel, commonly authenticating through a password, certificate or the use of an asymmetric encryption key pair.
 
@@ -39251,6 +39253,7 @@ lateral-movement:
       - root
       x_mitre_system_requirements:
       - SSH service enabled, trust relationships configured, established connections
+      identifier: T1563.001
     atomic_tests: []
   T1021.002:
     technique:
@@ -48213,7 +48216,6 @@ discovery:
       - marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168
       x_mitre_attack_spec_version: 3.1.0
       x_mitre_is_subtechnique: false
-      identifier: T1518
     atomic_tests: []
   T1538:
     technique:

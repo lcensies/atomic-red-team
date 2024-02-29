@@ -29,8 +29,9 @@ atomic_tests:
   - description: |
       The kernel module must exist on disk at specified location
     prereq_command: |
-      if [ -f #{module_path} ]; then exit 0; else exit 1; fi;
+      if [ -f #{module_path} ] && [ -d /lib/modules/$(uname -r)/build ] ; then exit 0; else exit 1; fi;
     get_prereq_command: |
+      apt list --installed | grep linux-headers-$(uname -r) || apt install linux-headers-$(uname -r)
       if [ ! -d #{temp_folder} ]; then mkdir #{temp_folder}; touch #{temp_folder}/safe_to_delete; fi;
       cp #{module_source_path}/* #{temp_folder}/
       cd #{temp_folder}; make
@@ -42,6 +43,46 @@ atomic_tests:
       sudo rmmod #{module_name}
       [ -f #{temp_folder}/safe_to_delete ] && rm -rf #{temp_folder}
     name: bash
+    elevation_required: true
+- name: Linux - Load Kernel Module via modprobe
+  auto_generated_guid: c28c8c28-f777-40ee-af7d-59a85af9b619
+  description: |
+    Loadable Kernel Module based Rootkit
+  supported_platforms:
+  - linux
+  input_arguments:
+    rootkit_source_path:
+      description: Path to the rootkit source. Used when prerequisites are fetched.
+      type: path
+      default: PathToAtomicsFolder/T1014/src/Linux
+    rootkit_name:
+      description: Module name
+      type: string
+      default: T1014
+  dependency_executor_name: bash
+  dependencies:
+  - description: |
+      The kernel module must exist on disk at specified location (#{rootkit_source_path}/#{rootkit_name}.ko)
+    prereq_command: |
+      if [ ! -f /lib/modules/$(uname -r)/#{rootkit_name}.ko ]; then exit 1; fi; 
+      if [ -d /lib/modules/$(uname -r)/build ]; then exit 0; else exit 1; fi;
+
+    get_prereq_command: |
+      apt list --installed | grep linux-headers-$(uname -r) || apt install linux-headers-$(uname -r) make gcc
+      if [ ! -d /tmp/T1014 ]; then mkdir /tmp/T1014; touch /tmp/T1014/safe_to_delete; fi;
+      cp #{rootkit_source_path}/* /tmp/T1014
+      cd /tmp/T1014; make        
+      sudo cp /tmp/T1014/#{rootkit_name}.ko /lib/modules/$(uname -r)/
+      [ -f /tmp/T1014/safe_to_delete ] && rm -rf /tmp/T1014
+      sudo depmod -a
+  executor:
+    command: |
+      sudo modprobe #{rootkit_name}
+    cleanup_command: |
+      sudo modprobe -r #{rootkit_name}
+      sudo rm /lib/modules/$(uname -r)/#{rootkit_name}.ko
+      sudo depmod -a
+    name: sh
     elevation_required: true
 - name: MacOS - Load Kernel Module via kextload and kmutil
   auto_generated_guid: f4391089-d3a5-4dd1-ab22-0419527f2672

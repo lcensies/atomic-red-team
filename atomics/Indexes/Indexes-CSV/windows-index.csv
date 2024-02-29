@@ -138,9 +138,9 @@ defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,3,A
 defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,4,Opening ports for proxy - HARDRAIN,15e57006-79dd-46df-9bf9-31bc24fb5a80,command_prompt
 defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,5,Open a local port through Windows Firewall to any profile,9636dd6e-7599-40d2-8eee-ac16434f35ed,powershell
 defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,6,Allow Executable Through Firewall Located in Non-Standard Location,6f5822d2-d38d-4f48-9bfc-916607ff6b8c,powershell
-defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,20,LockBit Black - Unusual Windows firewall registry modification -cmd,a4651931-ebbb-4cde-9363-ddf3d66214cb,command_prompt
-defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,21,LockBit Black - Unusual Windows firewall registry modification -Powershell,80b453d1-eec5-4144-bf08-613a6c3ffe12,powershell
-defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,22,Blackbit - Disable Windows Firewall using netsh firewall,91f348e6-3760-4997-a93b-2ceee7f254ee,command_prompt
+defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,21,LockBit Black - Unusual Windows firewall registry modification -cmd,a4651931-ebbb-4cde-9363-ddf3d66214cb,command_prompt
+defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,22,LockBit Black - Unusual Windows firewall registry modification -Powershell,80b453d1-eec5-4144-bf08-613a6c3ffe12,powershell
+defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,23,Blackbit - Disable Windows Firewall using netsh firewall,91f348e6-3760-4997-a93b-2ceee7f254ee,command_prompt
 defense-evasion,T1553.003,Subvert Trust Controls: SIP and Trust Provider Hijacking,1,SIP (Subject Interface Package) Hijacking via Custom DLL,e12f5d8d-574a-4e9d-8a84-c0e8b4a8a675,command_prompt
 defense-evasion,T1207,Rogue Domain Controller,1,DCShadow (Active Directory),0f4c5eb0-98a0-4496-9c3d-656b4f2bc8f6,powershell
 defense-evasion,T1112,Modify Registry,1,Modify Registry of Current User Profile - cmd,1324796b-d0f6-455a-b4ae-21ffee6aa6b9,command_prompt
@@ -310,15 +310,15 @@ defense-evasion,T1055.012,Process Injection: Process Hollowing,1,Process Hollowi
 defense-evasion,T1055.012,Process Injection: Process Hollowing,2,RunPE via VBA,3ad4a037-1598-4136-837c-4027e4fa319b,powershell
 defense-evasion,T1055.012,Process Injection: Process Hollowing,3,Process Hollowing in Go using CreateProcessW WinAPI,c8f98fe1-c89b-4c49-a7e3-d60ee4bc2f5a,powershell
 defense-evasion,T1055.012,Process Injection: Process Hollowing,4,Process Hollowing in Go using CreateProcessW and CreatePipe WinAPIs (T1055.012),94903cc5-d462-498a-b919-b1e5ab155fee,powershell
-defense-evasion,T1027,Obfuscated Files or Information,2,Execute base64-encoded PowerShell,a50d5a97-2531-499e-a1de-5544c74432c6,powershell
-defense-evasion,T1027,Obfuscated Files or Information,3,Execute base64-encoded PowerShell from Windows Registry,450e7218-7915-4be4-8b9b-464a49eafcec,powershell
-defense-evasion,T1027,Obfuscated Files or Information,4,Execution from Compressed File,f8c8a909-5f29-49ac-9244-413936ce6d1f,command_prompt
-defense-evasion,T1027,Obfuscated Files or Information,5,DLP Evasion via Sensitive Data in VBA Macro over email,129edb75-d7b8-42cd-a8ba-1f3db64ec4ad,powershell
-defense-evasion,T1027,Obfuscated Files or Information,6,DLP Evasion via Sensitive Data in VBA Macro over HTTP,e2d85e66-cb66-4ed7-93b1-833fc56c9319,powershell
-defense-evasion,T1027,Obfuscated Files or Information,7,Obfuscated Command in PowerShell,8b3f4ed6-077b-4bdd-891c-2d237f19410f,powershell
-defense-evasion,T1027,Obfuscated Files or Information,8,Obfuscated Command Line using special Unicode characters,e68b945c-52d0-4dd9-a5e8-d173d70c448f,manual
-defense-evasion,T1027,Obfuscated Files or Information,9,Snake Malware Encrypted crmlog file,7e47ee60-9dd1-4269-9c4f-97953b183268,powershell
-defense-evasion,T1027,Obfuscated Files or Information,10,Execution from Compressed JScript File,fad04df1-5229-4185-b016-fb6010cd87ac,command_prompt
+defense-evasion,T1027,Obfuscated Files or Information,3,Execute base64-encoded PowerShell,a50d5a97-2531-499e-a1de-5544c74432c6,powershell
+defense-evasion,T1027,Obfuscated Files or Information,4,Execute base64-encoded PowerShell from Windows Registry,450e7218-7915-4be4-8b9b-464a49eafcec,powershell
+defense-evasion,T1027,Obfuscated Files or Information,5,Execution from Compressed File,f8c8a909-5f29-49ac-9244-413936ce6d1f,command_prompt
+defense-evasion,T1027,Obfuscated Files or Information,6,DLP Evasion via Sensitive Data in VBA Macro over email,129edb75-d7b8-42cd-a8ba-1f3db64ec4ad,powershell
+defense-evasion,T1027,Obfuscated Files or Information,7,DLP Evasion via Sensitive Data in VBA Macro over HTTP,e2d85e66-cb66-4ed7-93b1-833fc56c9319,powershell
+defense-evasion,T1027,Obfuscated Files or Information,8,Obfuscated Command in PowerShell,8b3f4ed6-077b-4bdd-891c-2d237f19410f,powershell
+defense-evasion,T1027,Obfuscated Files or Information,9,Obfuscated Command Line using special Unicode characters,e68b945c-52d0-4dd9-a5e8-d173d70c448f,manual
+defense-evasion,T1027,Obfuscated Files or Information,10,Snake Malware Encrypted crmlog file,7e47ee60-9dd1-4269-9c4f-97953b183268,powershell
+defense-evasion,T1027,Obfuscated Files or Information,11,Execution from Compressed JScript File,fad04df1-5229-4185-b016-fb6010cd87ac,command_prompt
 defense-evasion,T1564.006,Run Virtual Instance,1,Register Portable Virtualbox,c59f246a-34f8-4e4d-9276-c295ef9ba0dd,command_prompt
 defense-evasion,T1564.006,Run Virtual Instance,2,Create and start VirtualBox virtual machine,88b81702-a1c0-49a9-95b2-2dd53d755767,command_prompt
 defense-evasion,T1564.006,Run Virtual Instance,3,Create and start Hyper-V virtual machine,fb8d4d7e-f5a4-481c-8867-febf13f8b6d3,powershell
@@ -1147,7 +1147,7 @@ discovery,T1518.001,Software Discovery: Security Software Discovery,10,Security 
 discovery,T1018,Remote System Discovery,1,Remote System Discovery - net,85321a9c-897f-4a60-9f20-29788e50bccd,command_prompt
 discovery,T1018,Remote System Discovery,2,Remote System Discovery - net group Domain Computers,f1bf6c8f-9016-4edf-aff9-80b65f5d711f,command_prompt
 discovery,T1018,Remote System Discovery,3,Remote System Discovery - nltest,52ab5108-3f6f-42fb-8ba3-73bc054f22c8,command_prompt
-discovery,T1018,Remote System Discovery,4,Remote System Discovery - ping sweep,6db1f57f-d1d5-4223-8a66-55c9c65a9592,command_prompt
+discovery,T1018,Remote System Discovery,4,Remote System Discovery - ping sweep - Windows,6db1f57f-d1d5-4223-8a66-55c9c65a9592,command_prompt
 discovery,T1018,Remote System Discovery,5,Remote System Discovery - arp,2d5a61f5-0447-4be4-944a-1f8530ed6574,command_prompt
 discovery,T1018,Remote System Discovery,8,Remote System Discovery - nslookup,baa01aaa-5e13-45ec-8a0d-e46c93c9760f,powershell
 discovery,T1018,Remote System Discovery,9,Remote System Discovery - adidnsdump,95e19466-469e-4316-86d2-1dc401b5a959,command_prompt
@@ -1166,11 +1166,6 @@ discovery,T1046,Network Service Discovery,6,WinPwn - MS17-10,97585b04-5be2-40e9-
 discovery,T1046,Network Service Discovery,7,WinPwn - bluekeep,1cca5640-32a9-46e6-b8e0-fabbe2384a73,powershell
 discovery,T1046,Network Service Discovery,8,WinPwn - fruit,bb037826-cbe8-4a41-93ea-b94059d6bb98,powershell
 discovery,T1046,Network Service Discovery,10,Port-Scanning /24 Subnet with PowerShell,05df2a79-dba6-4088-a804-9ca0802ca8e4,powershell
-discovery,T1518,Software Discovery,1,Find and Display Internet Explorer Browser Version,68981660-6670-47ee-a5fa-7e74806420a4,command_prompt
-discovery,T1518,Software Discovery,2,Applications Installed,c49978f6-bd6e-4221-ad2c-9e3e30cc1e3b,powershell
-discovery,T1518,Software Discovery,4,WinPwn - Dotnetsearch,7e79a1b6-519e-433c-ad55-3ff293667101,powershell
-discovery,T1518,Software Discovery,5,WinPwn - DotNet,10ba02d0-ab76-4f80-940d-451633f24c5b,powershell
-discovery,T1518,Software Discovery,6,WinPwn - powerSQL,0bb64470-582a-4155-bde2-d6003a95ed34,powershell
 discovery,T1124,System Time Discovery,1,System Time Discovery,20aba24b-e61f-4b26-b4ce-4784f763ca20,command_prompt
 discovery,T1124,System Time Discovery,2,System Time Discovery - PowerShell,1d5711d6-655c-4a47-ae9c-6503c74fa877,powershell
 discovery,T1124,System Time Discovery,4,System Time Discovery W32tm as a Delay,d5d5a6b0-0f92-42d8-985d-47aafa2dd4db,command_prompt

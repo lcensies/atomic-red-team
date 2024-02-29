@@ -19,7 +19,7 @@
 - T1564.008 Email Hiding Rules [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1014 Rootkit [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1548.003 Abuse Elevation Control Mechanism: Sudo and Sudo Caching](../../T1548.003/T1548.003.md)
-  - Atomic Test #1: Sudo usage [macos, linux]
+  - Atomic Test #1: List available sudo commands [macos, linux]
   - Atomic Test #3: Unlimited sudo cache timeout [macos, linux]
   - Atomic Test #5: Disable tty_tickets for sudo caching [macos, linux]
 - [T1036.005 Masquerading: Match Legitimate Name or Location](../../T1036.005/T1036.005.md)
@@ -220,8 +220,8 @@
   - Atomic Test #1: Persistance with Event Monitor - emond [macos]
 - T1098 Account Manipulation [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1547.006 Boot or Logon Autostart Execution: Kernel Modules and Extensions](../../T1547.006/T1547.006.md)
-  - Atomic Test #2: MacOS - Load Kernel Module via kextload and kmutil [macos]
-  - Atomic Test #3: MacOS - Load Kernel Module via KextManagerLoadKextWithURL() [macos]
+  - Atomic Test #3: MacOS - Load Kernel Module via kextload and kmutil [macos]
+  - Atomic Test #4: MacOS - Load Kernel Module via KextManagerLoadKextWithURL() [macos]
 - T1574 Hijack Execution Flow [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1078 Valid Accounts [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1556.006 Multi-Factor Authentication [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -354,7 +354,7 @@
   - Atomic Test #1: Enable Apple Remote Desktop Agent [macos]
 - T1080 Taint Shared Content [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1021.004 Remote Services: SSH [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
-- T1563.001 SSH Hijacking [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- T1563.001 Remote Service Session Hijacking: SSH Hijacking [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1021 Remote Services [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1563 Remote Service Session Hijacking [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1072 Software Deployment Tools [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -368,7 +368,7 @@
 - T1543 Create or Modify System Process [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1546.006 LC_LOAD_DYLIB Addition [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1548.003 Abuse Elevation Control Mechanism: Sudo and Sudo Caching](../../T1548.003/T1548.003.md)
-  - Atomic Test #1: Sudo usage [macos, linux]
+  - Atomic Test #1: List available sudo commands [macos, linux]
   - Atomic Test #3: Unlimited sudo cache timeout [macos, linux]
   - Atomic Test #5: Disable tty_tickets for sudo caching [macos, linux]
 - T1547 Boot or Logon Autostart Execution [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -401,8 +401,8 @@
   - Atomic Test #1: Persistance with Event Monitor - emond [macos]
 - T1098 Account Manipulation [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1547.006 Boot or Logon Autostart Execution: Kernel Modules and Extensions](../../T1547.006/T1547.006.md)
-  - Atomic Test #2: MacOS - Load Kernel Module via kextload and kmutil [macos]
-  - Atomic Test #3: MacOS - Load Kernel Module via KextManagerLoadKextWithURL() [macos]
+  - Atomic Test #3: MacOS - Load Kernel Module via kextload and kmutil [macos]
+  - Atomic Test #4: MacOS - Load Kernel Module via KextManagerLoadKextWithURL() [macos]
 - T1574 Hijack Execution Flow [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1078 Valid Accounts [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1068 Exploitation for Privilege Escalation [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -551,12 +551,11 @@
   - Atomic Test #3: Security Software Discovery - ps (macOS) [macos]
 - [T1018 Remote System Discovery](../../T1018/T1018.md)
   - Atomic Test #6: Remote System Discovery - arp nix [linux, macos]
-  - Atomic Test #7: Remote System Discovery - sweep [linux, macos]
+  - Atomic Test #7: Remote System Discovery - ping sweep - Linux [linux, macos]
 - [T1046 Network Service Discovery](../../T1046/T1046.md)
   - Atomic Test #1: Port Scan [linux, macos]
   - Atomic Test #2: Port Scan Nmap [linux, macos]
 - [T1518 Software Discovery](../../T1518/T1518.md)
-  - Atomic Test #3: Find and Display Safari Browser Version [macos]
 - T1622 Debugger Evasion [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 
 # execution

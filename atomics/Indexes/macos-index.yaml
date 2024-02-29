@@ -1474,7 +1474,7 @@ defense-evasion:
       - root
       identifier: T1548.003
     atomic_tests:
-    - name: Sudo usage
+    - name: List available sudo commands
       auto_generated_guid: 150c3a08-ee6e-48a6-aeaf-3659d24ceb4e
       description: 'Common Sudo enumeration methods.
 
@@ -1485,7 +1485,7 @@ defense-evasion:
       executor:
         name: sh
         elevation_required: true
-        command: "sudo -l      \nsudo cat /etc/sudoers\nsudo vim /etc/sudoers\n"
+        command: "sudo -l      \nsudo cat /etc/sudoers\n"
     - name: Unlimited sudo cache timeout
       auto_generated_guid: a7b17659-dd5e-46f7-b7d1-e6792c91d0bc
       description: 'Sets sudo caching timestamp_timeout to a value for unlimited.
@@ -2542,7 +2542,7 @@ defense-evasion:
             on linux, it's /var/log/syslog*. Also note for File events, that on macos,
             /var/ is a link to /private/var/.
           type: string
-          default: "/var/log/system.log"
+          default: "/var/log/syslog"
         macos_audit_path:
           description: path of audit file to delete
           type: string
@@ -17213,7 +17213,7 @@ privilege-escalation:
       - root
       identifier: T1548.003
     atomic_tests:
-    - name: Sudo usage
+    - name: List available sudo commands
       auto_generated_guid: 150c3a08-ee6e-48a6-aeaf-3659d24ceb4e
       description: 'Common Sudo enumeration methods.
 
@@ -17224,7 +17224,7 @@ privilege-escalation:
       executor:
         name: sh
         elevation_required: true
-        command: "sudo -l      \nsudo cat /etc/sudoers\nsudo vim /etc/sudoers\n"
+        command: "sudo -l      \nsudo cat /etc/sudoers\n"
     - name: Unlimited sudo cache timeout
       auto_generated_guid: a7b17659-dd5e-46f7-b7d1-e6792c91d0bc
       description: 'Sets sudo caching timestamp_timeout to a value for unlimited.
@@ -17836,7 +17836,7 @@ privilege-escalation:
         name: sh
         command: |
           crontab -l > /tmp/notevil
-          echo "* * * * * #{command}" > #{tmp_cron} && crontab #{tmp_cron}
+          echo "* * * * * #{command}" > #{tmp_cron} && crontab  #{tmp_cron}
         cleanup_command: 'crontab /tmp/notevil
 
           '
@@ -23978,7 +23978,6 @@ privilege-escalation:
       auto_generated_guid: 97a48daa-8bca-4bc0-b1a9-c1d163e762de
       description: |
         Modify rc.common
-
         [Reference](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/StartupItems.html)
       supported_platforms:
       - macos
@@ -24203,7 +24202,7 @@ privilege-escalation:
   T1547.013:
     technique:
       modified: '2023-10-16T16:35:12.501Z'
-      name: XDG Autostart Entries
+      name: 'Boot or Logon Autostart Execution: XDG Autostart Entries'
       description: |-
         Adversaries may add or modify XDG Autostart Entries to execute malicious programs or commands when a user’s desktop environment is loaded at login. XDG Autostart entries are available for any XDG-compliant Linux system. XDG Autostart entries use Desktop Entry files (`.desktop`) to configure the user’s desktop environment upon user login. These configuration files determine what applications launch upon user login, define associated applications to open specific file types, and define applications used to open removable media.(Citation: Free Desktop Application Autostart Feb 2006)(Citation: Free Desktop Entry Keys)
 
@@ -24267,6 +24266,7 @@ privilege-escalation:
       - marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168
       x_mitre_attack_spec_version: 3.2.0
       x_mitre_modified_by_ref: identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5
+      identifier: T1547.013
     atomic_tests: []
   T1055.005:
     technique:
@@ -26348,7 +26348,7 @@ execution:
         name: sh
         command: |
           crontab -l > /tmp/notevil
-          echo "* * * * * #{command}" > #{tmp_cron} && crontab #{tmp_cron}
+          echo "* * * * * #{command}" > #{tmp_cron} && crontab  #{tmp_cron}
         cleanup_command: 'crontab /tmp/notevil
 
           '
@@ -29867,7 +29867,7 @@ persistence:
         name: sh
         command: |
           crontab -l > /tmp/notevil
-          echo "* * * * * #{command}" > #{tmp_cron} && crontab #{tmp_cron}
+          echo "* * * * * #{command}" > #{tmp_cron} && crontab  #{tmp_cron}
         cleanup_command: 'crontab /tmp/notevil
 
           '
@@ -36479,7 +36479,6 @@ persistence:
       auto_generated_guid: 97a48daa-8bca-4bc0-b1a9-c1d163e762de
       description: |
         Modify rc.common
-
         [Reference](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/StartupItems.html)
       supported_platforms:
       - macos
@@ -36661,7 +36660,7 @@ persistence:
   T1547.013:
     technique:
       modified: '2023-10-16T16:35:12.501Z'
-      name: XDG Autostart Entries
+      name: 'Boot or Logon Autostart Execution: XDG Autostart Entries'
       description: |-
         Adversaries may add or modify XDG Autostart Entries to execute malicious programs or commands when a user’s desktop environment is loaded at login. XDG Autostart entries are available for any XDG-compliant Linux system. XDG Autostart entries use Desktop Entry files (`.desktop`) to configure the user’s desktop environment upon user login. These configuration files determine what applications launch upon user login, define associated applications to open specific file types, and define applications used to open removable media.(Citation: Free Desktop Application Autostart Feb 2006)(Citation: Free Desktop Entry Keys)
 
@@ -36725,6 +36724,7 @@ persistence:
       - marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168
       x_mitre_attack_spec_version: 3.2.0
       x_mitre_modified_by_ref: identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5
+      identifier: T1547.013
     atomic_tests: []
   T1547.007:
     technique:
@@ -41275,11 +41275,11 @@ collection:
           default: PathToAtomicsFolder/T1056.001/src/MacOSKeylogger.swift
       dependency_executor_name: bash
       dependencies:
-      - description: 'swift script must exist at #{swift_src}, and the terminal must
+      - description: 'swift script must exist at  #{swift_src}, and the terminal must
           have input monitoring permissions.
 
           '
-        prereq_command: 'if [ -f #{swift_src} ]; then chmod +x #{swift_src}; else
+        prereq_command: 'if [ -f #{swift_src} ]; then chmod +x  #{swift_src}; else
           exit 1; fi
 
           '
@@ -41287,7 +41287,7 @@ collection:
 
           '
       executor:
-        command: 'swift #{swift_src} -keylog
+        command: 'swift  #{swift_src} -keylog
 
           '
         cleanup_command: 'kill `pgrep swift-frontend`
@@ -43904,7 +43904,7 @@ lateral-movement:
         description: Hodgson, M. (2019, May 8). Post-mortem and remediations for Apr
           11 security incident. Retrieved February 17, 2020.
       modified: '2020-03-23T23:11:24.682Z'
-      name: SSH Hijacking
+      name: 'Remote Service Session Hijacking: SSH Hijacking'
       description: |-
         Adversaries may hijack a legitimate user's SSH session to move laterally within an environment. Secure Shell (SSH) is a standard means of remote access on Linux and macOS systems. It allows a user to connect to another system via an encrypted tunnel, commonly authenticating through a password, certificate or the use of an asymmetric encryption key pair.
 
@@ -43934,6 +43934,7 @@ lateral-movement:
       - root
       x_mitre_system_requirements:
       - SSH service enabled, trust relationships configured, established connections
+      identifier: T1563.001
     atomic_tests: []
   T1021.002:
     technique:
@@ -45437,11 +45438,11 @@ credential-access:
           default: PathToAtomicsFolder/T1056.001/src/MacOSKeylogger.swift
       dependency_executor_name: bash
       dependencies:
-      - description: 'swift script must exist at #{swift_src}, and the terminal must
+      - description: 'swift script must exist at  #{swift_src}, and the terminal must
           have input monitoring permissions.
 
           '
-        prereq_command: 'if [ -f #{swift_src} ]; then chmod +x #{swift_src}; else
+        prereq_command: 'if [ -f #{swift_src} ]; then chmod +x  #{swift_src}; else
           exit 1; fi
 
           '
@@ -45449,7 +45450,7 @@ credential-access:
 
           '
       executor:
-        command: 'swift #{swift_src} -keylog
+        command: 'swift  #{swift_src} -keylog
 
           '
         cleanup_command: 'kill `pgrep swift-frontend`
@@ -47589,14 +47590,14 @@ credential-access:
         search_path:
           description: Path where to start searching from.
           type: path
-          default: "/"
+          default: 
         output_folder:
           description: Output folder containing copies of SSH private key files
           type: path
           default: "/tmp/art-staging"
       executor:
         command: |
-          mkdir #{output_folder}
+          mkdir -p #{output_folder}
           find #{search_path} -name id_rsa 2>/dev/null -exec rsync -R {} #{output_folder} \;
           exit 0
         cleanup_command: 'rm -rf #{output_folder}
@@ -48362,7 +48363,8 @@ credential-access:
           type: string
           default: "/"
       executor:
-        command: 'find #{file_path} -name "credentials" -type f -path "*/.aws/*" 2>/dev/null
+        command: 'find  #{file_path} -name "credentials" -type f -path "*/.aws/*"
+          2>/dev/null
 
           '
         name: sh
@@ -48392,7 +48394,7 @@ credential-access:
           default: "/"
       executor:
         command: |
-          grep -ri password #{file_path}
+          (timeout 5 grep -ri password  #{file_path}) || true
           exit 0
         name: sh
     - name: Find and Access Github Credentials
@@ -48412,7 +48414,7 @@ credential-access:
       executor:
         name: bash
         elevation_required: false
-        command: 'for file in $(find #{file_path} -type f -name .netrc 2> /dev/null);do
+        command: 'for file in $(find  #{file_path} -type f -name .netrc 2> /dev/null);do
           echo $file ; cat $file ; done
 
           '
@@ -49297,7 +49299,7 @@ credential-access:
         name: bash
         elevation_required: false
         command: |
-          cp "$PathToAtomicsFolder/T1110.004/src/credstuffuserpass.txt" /tmp/
+          cp "PathToAtomicsFolder/T1110.004/src/credstuffuserpass.txt" /tmp/
           for unamepass in $(cat /tmp/credstuffuserpass.txt);do sshpass -p `echo $unamepass | cut -d":" -f2` ssh -o 'StrictHostKeyChecking=no' `echo $unamepass | cut -d":" -f1`@#{target_host};done
   T1556.006:
     technique:
@@ -54021,7 +54023,7 @@ discovery:
 
           '
         name: sh
-    - name: Remote System Discovery - sweep
+    - name: Remote System Discovery - ping sweep - Linux
       auto_generated_guid: 96db2632-8417-4dbb-b8bb-a8b92ba391de
       description: |
         Identify remote systems via ping sweep.
@@ -54042,9 +54044,14 @@ discovery:
           description: Subnet used for ping sweep.
           type: string
           default: 192.168.1
+        timeout:
+          description: Timeout for commands in seconds
+          type: int
+          default: 10
       executor:
-        command: 'for ip in $(seq #{start_host} #{stop_host}); do ping -c 1  #{subnet}.$ip;
-          [ $? -eq 0 ] && echo "#{subnet}.$ip UP" || : ; done
+        command: '(timeout #{timeout} bash -c ''for ip in $(seq #{start_host} #{stop_host});
+          do ping -c 1  #{subnet}.$ip; [ $? -eq 0 ] && echo "#{subnet}.$ip UP" ||
+          : ; done'') || :
 
           '
         name: sh
@@ -54123,7 +54130,6 @@ discovery:
       auto_generated_guid: 68e907da-2539-48f6-9fc9-257a78c05540
       description: |
         Scan ports to check for listening ports.
-
         Upon successful execution, sh will perform a network connection against a single host (192.168.1.1) and determine what ports are open in the range of 1-65535. Results will be via stdout.
       supported_platforms:
       - linux
@@ -54133,11 +54139,13 @@ discovery:
           description: Host to scan.
           type: string
           default: 192.168.1.1
+        timeout:
+          description: Timeout for commands in seconds
+          type: int
+          default: 15
       executor:
-        command: 'for port in {1..65535}; do (2>/dev/null echo >/dev/tcp/#{host}/$port)
-          && echo port $port is open ; done
-
-          '
+        command: "(timeout  #{timeout} for port in {1..65535}; do (2>/dev/null echo
+          >/dev/tcp/#{host}/$port) && echo port $port is open ; done) || true\n"
         name: bash
     - name: Port Scan Nmap
       auto_generated_guid: 515942b0-a09f-4163-a7bb-22fefb6f185f
@@ -54160,6 +54168,10 @@ discovery:
           description: Network Range to Scan.
           type: string
           default: 192.168.1.0/24
+        timeout:
+          description: Timeout for commands in seconds
+          type: int
+          default: 15
       dependency_executor_name: sh
       dependencies:
       - description: 'Check if nmap command exists on the machine
@@ -54192,9 +54204,9 @@ discovery:
           apt-get && DEBIAN_FRONTEND=noninteractive apt-get install -y telnet)\n"
       executor:
         command: |
-          sudo nmap -sS #{network_range} -p #{port}
-          telnet #{host} #{port}
-          nc -nv #{host} #{port}
+          (timeout #{timeout} sudo nmap -sS #{network_range} -p  #{port}) || true
+          (timeout #{timeout} telnet #{host}  #{port}) || true
+          (timeout #{timeout} nc -nv #{host}  #{port}) || true
         name: sh
         elevation_required: true
   T1518:
@@ -54246,23 +54258,7 @@ discovery:
       - marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168
       x_mitre_attack_spec_version: 3.1.0
       x_mitre_is_subtechnique: false
-      identifier: T1518
-    atomic_tests:
-    - name: Find and Display Safari Browser Version
-      auto_generated_guid: 103d6533-fd2a-4d08-976a-4a598565280f
-      description: 'Adversaries may attempt to get a listing of non-security related
-        software that is installed on the system. Adversaries may use the information
-        from Software Discovery during automated discovery to shape follow-on behaviors
-
-        '
-      supported_platforms:
-      - macos
-      executor:
-        name: sh
-        elevation_required: false
-        command: |
-          /usr/libexec/PlistBuddy -c "print :CFBundleShortVersionString" /Applications/Safari.app/Contents/Info.plist
-          /usr/libexec/PlistBuddy -c "print :CFBundleVersion" /Applications/Safari.app/Contents/Info.plist
+    atomic_tests: []
   T1538:
     technique:
       modified: '2023-10-16T16:51:02.852Z'
@@ -60905,10 +60901,13 @@ impact:
       supported_platforms:
       - linux
       - macos
+      input_arguments:
+        timeout:
+          description: Timeout in seconds
+          type: int
+          default: 5
       executor:
-        command: 'yes > /dev/null
-
-          '
+        command: "(timeout  #{timeout} yes > /dev/null) || true\n"
         name: sh
   T1565.002:
     technique:

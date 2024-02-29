@@ -1086,7 +1086,7 @@ atomic_tests:
     elevation_required: true  
 
 
-- name: Kill Process by PID
+- name: Linux - Kill Process by PID
   auto_generated_guid: a7b8c9d0-e1f2-3g4h-5i6j-7k8l9m0n1o2p
   description: |
     This test simulates an adversary attempting to impair defenses by using the kill command to terminate a process.

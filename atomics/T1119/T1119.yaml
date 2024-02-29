@@ -66,4 +66,47 @@ atomic_tests:
       del %TEMP%\T1119_3.txt >nul 2>&1
       del %TEMP%\T1119_4.txt >nul 2>&1
     name: command_prompt
+- name: Execute Command via Cron Job with find and -exec
+  auto_generated_guid: e4f5g6h7-i8j9-k0l1-m2n3-o4p5q6r7s8t9
+  description: |
+    Adds a cron job that uses `find` with `-exec` to execute a command, simulating the scheduling of tasks for persistence or execution. The job is executed by cron, mimicking an adversary's use of scheduled tasks for malicious purposes.
+  supported_platforms:
+    - linux
+  dependencies:
+    - description: |
+        Requires cron or a similar scheduler to be present and running on the system.
+      prereq_command: |
+        pgrep cron || pgrep crond || pgrep anacron
+      get_prereq_command: |
+        echo "Ensure cron, crond, or anacron is running on the system."
+  dependency_executor_name: bash
+  executor:
+    name: bash
+    elevation_required: false
+    command: |
+      # Create a script to be executed by cron
+      SCRIPT_PATH="/tmp/test_cron_find_exec.sh"
+      echo "touch /tmp/test_file.txt && echo 'Cron test file' > /tmp/test_file.txt && find /tmp -type f -name 'test_file.txt' -exec cp {} {}.cronbak \;" > $SCRIPT_PATH
+      chmod +x $SCRIPT_PATH
 
+      # Add a cron job to execute the script within the next minute
+      CRON_JOB="* * * * * $SCRIPT_PATH"
+      (crontab -l 2>/dev/null; echo "$CRON_JOB") | crontab -
+
+      # Note: The script will run within the next 1-2 minutes. Adjust as needed for testing purposes.
+      echo "Cron job added. Waiting for execution..."
+
+      # Wait a couple of minutes to allow cron job to execute
+      sleep 120
+
+      # Display content of the copied file if exists
+      if [ -f /tmp/test_file.txt.cronbak ]; then
+        echo "Cron job executed successfully. Copied file exists."
+      else
+        echo "Cron job may not have executed as expected."
+      fi
+  cleanup_command: |
+      # Remove the temporary cron job and cleanup files
+      crontab -l | grep -v "$SCRIPT_PATH" | crontab -
+      rm -f $SCRIPT_PATH /tmp/test_file.txt /tmp/test_file.txt.cronbak
+      echo "Cron job removed and temporary files cleaned up."

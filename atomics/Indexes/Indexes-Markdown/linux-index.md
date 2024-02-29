@@ -24,12 +24,10 @@
 - T1574.007 Path Interception by PATH Environment Variable [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1564.008 Email Hiding Rules [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1014 Rootkit](../../T1014/T1014.md)
-  - Atomic Test #1: Loadable Kernel Module based Rootkit [linux]
-  - Atomic Test #2: Loadable Kernel Module based Rootkit [linux]
-  - Atomic Test #3: dynamic-linker based rootkit (libprocesshider) [linux]
-  - Atomic Test #4: Loadable Kernel Module based Rootkit (Diamorphine) [linux]
+  - Atomic Test #1: dynamic-linker based rootkit (libprocesshider) [linux]
+  - Atomic Test #2: Loadable Kernel Module based Rootkit (Diamorphine) [linux]
 - [T1548.003 Abuse Elevation Control Mechanism: Sudo and Sudo Caching](../../T1548.003/T1548.003.md)
-  - Atomic Test #1: Sudo usage [macos, linux]
+  - Atomic Test #1: List available sudo commands [macos, linux]
   - Atomic Test #2: Sudo usage (freebsd) [linux]
   - Atomic Test #3: Unlimited sudo cache timeout [macos, linux]
   - Atomic Test #4: Unlimited sudo cache timeout (freebsd) [linux]
@@ -108,6 +106,7 @@
   - Atomic Test #17: Tail the UFW firewall log file [linux]
   - Atomic Test #18: Disable iptables [linux]
   - Atomic Test #19: Modify/delete iptables firewall rules [linux]
+  - Atomic Test #20: Accept incoming traffic to specified port via iptables [linux]
 - T1562.012 Disable or Modify Linux Audit System [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1027.001 Obfuscated Files or Information: Binary Padding](../../T1027.001/T1027.001.md)
   - Atomic Test #1: Pad Binary to Change Hash - Linux/macOS dd [linux, macos]
@@ -173,11 +172,13 @@
   - Atomic Test #43: Disable Memory Swap [linux]
   - Atomic Test #47: Tamper with Defender ATP on Linux/MacOS [linux, macos]
   - Atomic Test #50: ESXi - Disable Account Lockout Policy via PowerCLI [linux]
+  - Atomic Test #51: Linux - Kill Process by PID [linux]
 - T1574 Hijack Execution Flow [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1027.005 Indicator Removal from Tools [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1078 Valid Accounts [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1027 Obfuscated Files or Information](../../T1027/T1027.md)
   - Atomic Test #1: Decode base64 Data into Script [macos, linux]
+  - Atomic Test #2: Execute Python Code via eval with Base64 Decoding [linux]
 - T1556.006 Multi-Factor Authentication [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1564.006 Run Virtual Instance [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1553 Subvert Trust Controls [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -243,6 +244,7 @@
   - Atomic Test #2: Cron - Add script to all cron subfolders [macos, linux]
   - Atomic Test #3: Cron - Add script to /etc/cron.d folder [linux]
   - Atomic Test #4: Cron - Add script to /var/spool/cron/crontabs/ folder [linux]
+  - Atomic Test #5: Cron Service Manipulation [linux]
 - T1505.002 Server Software Component: Transport Agent [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1053 Scheduled Task/Job [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1176 Browser Extensions](../../T1176/T1176.md)
@@ -250,7 +252,8 @@
   - Atomic Test #2: Chrome/Chromium (Chrome Web Store) [linux, windows, macos]
   - Atomic Test #3: Firefox [linux, windows, macos]
 - T1205 Traffic Signaling [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
-- T1505.003 Server Software Component: Web Shell [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1505.003 Server Software Component: Web Shell](../../T1505.003/T1505.003.md)
+  - Atomic Test #2: Invoke Web Shell in Dockerized PHP Server [linux]
 - T1078.001 Valid Accounts: Default Accounts [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1546.005 Event Triggered Execution: Trap](../../T1546.005/T1546.005.md)
   - Atomic Test #1: Trap EXIT [macos, linux]
@@ -277,6 +280,7 @@
 - T1098 Account Manipulation [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1547.006 Boot or Logon Autostart Execution: Kernel Modules and Extensions](../../T1547.006/T1547.006.md)
   - Atomic Test #1: Linux - Load Kernel Module via insmod [linux]
+  - Atomic Test #2: Linux - Load Kernel Module via modprobe [linux]
 - [T1053.006 Scheduled Task/Job: Systemd Timers](../../T1053.006/T1053.006.md)
   - Atomic Test #1: Create Systemd Service and Timer [linux]
   - Atomic Test #2: Create a user level transient systemd service and timer [linux]
@@ -304,7 +308,8 @@
   - Atomic Test #2: Create SysV Service [linux]
   - Atomic Test #3: Create Systemd Service file,  Enable the service , Modify and Reload the service. [linux]
 - T1136 Create Account [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
-- T1547.013 XDG Autostart Entries [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1547.013 Boot or Logon Autostart Execution: XDG Autostart Entries](../../T1547.013/T1547.013.md)
+  - Atomic Test #1: Linux - Modification of Autostart Entries [linux]
 - T1653 Power Settings [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1053.002 Scheduled Task/Job: At](../../T1053.002/T1053.002.md)
   - Atomic Test #2: At - Schedule a job [linux]
@@ -399,7 +404,8 @@
 - T1025 Data from Removable Media [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1074.001 Data Staged: Local Data Staging](../../T1074.001/T1074.001.md)
   - Atomic Test #2: Stage data from Discovery.sh [linux, macos]
-- T1119 Automated Collection [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1119 Automated Collection](../../T1119/T1119.md)
+  - Atomic Test #5: Execute Command via Cron Job with find and -exec [linux]
 - [T1115 Clipboard Data](../../T1115/T1115.md)
   - Atomic Test #5: Add or copy content to clipboard with xClip [linux]
 - T1074.002 Remote Data Staging [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -427,20 +433,22 @@
 - T1080 Taint Shared Content [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1021.004 Remote Services: SSH](../../T1021.004/T1021.004.md)
   - Atomic Test #1: ESXi - Enable SSH via PowerCLI [linux]
-- T1563.001 SSH Hijacking [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1563.001 Remote Service Session Hijacking: SSH Hijacking](../../T1563.001/T1563.001.md)
+  - Atomic Test #1: SSH Session Hijacking via SSH_AUTH_SOCK [linux]
 - T1021 Remote Services [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1563 Remote Service Session Hijacking [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1072 Software Deployment Tools [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1210 Exploitation of Remote Services [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1534 Internal Spearphishing [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
-- T1570 Lateral Tool Transfer [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1570 Lateral Tool Transfer](../../T1570/T1570.md)
+  - Atomic Test #3: Linux - Transfer Tool from external drive [linux]
 
 # privilege-escalation
 - T1037 Boot or Logon Initialization Scripts [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1574.007 Path Interception by PATH Environment Variable [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1543 Create or Modify System Process [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1548.003 Abuse Elevation Control Mechanism: Sudo and Sudo Caching](../../T1548.003/T1548.003.md)
-  - Atomic Test #1: Sudo usage [macos, linux]
+  - Atomic Test #1: List available sudo commands [macos, linux]
   - Atomic Test #2: Sudo usage (freebsd) [linux]
   - Atomic Test #3: Unlimited sudo cache timeout [macos, linux]
   - Atomic Test #4: Unlimited sudo cache timeout (freebsd) [linux]
@@ -452,6 +460,7 @@
   - Atomic Test #2: Cron - Add script to all cron subfolders [macos, linux]
   - Atomic Test #3: Cron - Add script to /etc/cron.d folder [linux]
   - Atomic Test #4: Cron - Add script to /var/spool/cron/crontabs/ folder [linux]
+  - Atomic Test #5: Cron Service Manipulation [linux]
 - T1053 Scheduled Task/Job [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1055 Process Injection [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1611 Escape to Host [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
@@ -482,6 +491,7 @@
 - T1098 Account Manipulation [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1547.006 Boot or Logon Autostart Execution: Kernel Modules and Extensions](../../T1547.006/T1547.006.md)
   - Atomic Test #1: Linux - Load Kernel Module via insmod [linux]
+  - Atomic Test #2: Linux - Load Kernel Module via modprobe [linux]
 - [T1053.006 Scheduled Task/Job: Systemd Timers](../../T1053.006/T1053.006.md)
   - Atomic Test #1: Create Systemd Service and Timer [linux]
   - Atomic Test #2: Create a user level transient systemd service and timer [linux]
@@ -508,7 +518,8 @@
   - Atomic Test #1: Create Systemd Service [linux]
   - Atomic Test #2: Create SysV Service [linux]
   - Atomic Test #3: Create Systemd Service file,  Enable the service , Modify and Reload the service. [linux]
-- T1547.013 XDG Autostart Entries [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1547.013 Boot or Logon Autostart Execution: XDG Autostart Entries](../../T1547.013/T1547.013.md)
+  - Atomic Test #1: Linux - Modification of Autostart Entries [linux]
 - T1055.008 Ptrace System Calls [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - [T1053.002 Scheduled Task/Job: At](../../T1053.002/T1053.002.md)
   - Atomic Test #2: At - Schedule a job [linux]
@@ -627,6 +638,7 @@
   - Atomic Test #3: System Service Discovery - systemctl/service [linux]
   - Atomic Test #4: System Service Discovery - service/status-all [linux]
   - Atomic Test #5: File Read - /etc/init.d [linux]
+  - Atomic Test #6: System Service Discovery with systemctl on Linux [linux]
 - [T1040 Network Sniffing](../../T1040/T1040.md)
   - Atomic Test #1: Packet Capture Linux using tshark or tcpdump [linux]
   - Atomic Test #2: Packet Capture FreeBSD using tshark or tcpdump [linux]
@@ -692,9 +704,12 @@
 - [T1518.001 Software Discovery: Security Software Discovery](../../T1518.001/T1518.001.md)
   - Atomic Test #4: Security Software Discovery - ps (Linux) [linux]
   - Atomic Test #5: Security Software Discovery - pgrep (FreeBSD) [linux]
+  - Atomic Test #11: Security Software Discovery - Access SELinux Configuration Files [linux]
+  - Atomic Test #12: Security Software Discovery - Get SELinux status via getenforce [linux]
+  - Atomic Test #13: Security Software Discovery - ClamAV service [linux]
 - [T1018 Remote System Discovery](../../T1018/T1018.md)
   - Atomic Test #6: Remote System Discovery - arp nix [linux, macos]
-  - Atomic Test #7: Remote System Discovery - sweep [linux, macos]
+  - Atomic Test #7: Remote System Discovery - ping sweep - Linux [linux, macos]
   - Atomic Test #12: Remote System Discovery - ip neighbour [linux]
   - Atomic Test #13: Remote System Discovery - ip route [linux]
   - Atomic Test #14: Remote System Discovery - netstat [linux]
@@ -703,7 +718,7 @@
 - [T1046 Network Service Discovery](../../T1046/T1046.md)
   - Atomic Test #1: Port Scan [linux, macos]
   - Atomic Test #2: Port Scan Nmap [linux, macos]
-- T1518 Software Discovery [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
+- [T1518 Software Discovery](../../T1518/T1518.md)
 - T1622 Debugger Evasion [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 
 # execution
@@ -715,6 +730,7 @@
   - Atomic Test #2: Cron - Add script to all cron subfolders [macos, linux]
   - Atomic Test #3: Cron - Add script to /etc/cron.d folder [linux]
   - Atomic Test #4: Cron - Add script to /var/spool/cron/crontabs/ folder [linux]
+  - Atomic Test #5: Cron Service Manipulation [linux]
 - T1053 Scheduled Task/Job [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1106 Native API [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)
 - T1059 Command and Scripting Interpreter [CONTRIBUTE A TEST](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing)

@@ -16,11 +16,9 @@ defense-evasion,T1222.002,"File and Directory Permissions Modification: FreeBSD,
 defense-evasion,T1222.002,"File and Directory Permissions Modification: FreeBSD, Linux and Mac File and Directory Permissions Modification",12,Chmod through c script (freebsd),da40b5fe-3098-4b3b-a410-ff177e49ee2e,sh
 defense-evasion,T1222.002,"File and Directory Permissions Modification: FreeBSD, Linux and Mac File and Directory Permissions Modification",13,Chown through c script,18592ba1-5f88-4e3c-abc8-ab1c6042e389,sh
 defense-evasion,T1222.002,"File and Directory Permissions Modification: FreeBSD, Linux and Mac File and Directory Permissions Modification",14,Chown through c script (freebsd),eb577a19-b730-4918-9b03-c5edcf51dc4e,sh
-defense-evasion,T1014,Rootkit,1,Loadable Kernel Module based Rootkit,dfb50072-e45a-4c75-a17e-a484809c8553,sh
-defense-evasion,T1014,Rootkit,2,Loadable Kernel Module based Rootkit,75483ef8-f10f-444a-bf02-62eb0e48db6f,sh
-defense-evasion,T1014,Rootkit,3,dynamic-linker based rootkit (libprocesshider),1338bf0c-fd0c-48c0-9e65-329f18e2c0d3,sh
-defense-evasion,T1014,Rootkit,4,Loadable Kernel Module based Rootkit (Diamorphine),0b996469-48c6-46e2-8155-a17f8b6c2247,sh
-defense-evasion,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,1,Sudo usage,150c3a08-ee6e-48a6-aeaf-3659d24ceb4e,sh
+defense-evasion,T1014,Rootkit,1,dynamic-linker based rootkit (libprocesshider),1338bf0c-fd0c-48c0-9e65-329f18e2c0d3,sh
+defense-evasion,T1014,Rootkit,2,Loadable Kernel Module based Rootkit (Diamorphine),0b996469-48c6-46e2-8155-a17f8b6c2247,sh
+defense-evasion,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,1,List available sudo commands,150c3a08-ee6e-48a6-aeaf-3659d24ceb4e,sh
 defense-evasion,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,2,Sudo usage (freebsd),2bf9a018-4664-438a-b435-cc6f8c6f71b1,sh
 defense-evasion,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,3,Unlimited sudo cache timeout,a7b17659-dd5e-46f7-b7d1-e6792c91d0bc,sh
 defense-evasion,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,4,Unlimited sudo cache timeout (freebsd),a83ad6e8-6f24-4d7f-8f44-75f8ab742991,sh
@@ -77,6 +75,7 @@ defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,16,
 defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,17,Tail the UFW firewall log file,419cca0c-fa52-4572-b0d7-bc7c6f388a27,sh
 defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,18,Disable iptables,7784c64e-ed0b-4b65-bf63-c86db229fd56,sh
 defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,19,Modify/delete iptables firewall rules,899a7fb5-d197-4951-8614-f19ac4a73ad4,sh
+defense-evasion,T1562.004,Impair Defenses: Disable or Modify System Firewall,20,Accept incoming traffic to specified port via iptables,834cfe86-3640-4b60-8578-34d581307cb4,sh
 defense-evasion,T1027.001,Obfuscated Files or Information: Binary Padding,1,Pad Binary to Change Hash - Linux/macOS dd,ffe2346c-abd5-4b45-a713-bf5f1ebd573a,sh
 defense-evasion,T1027.001,Obfuscated Files or Information: Binary Padding,2,Pad Binary to Change Hash using truncate command - Linux/macOS,e22a9e89-69c7-410f-a473-e6c212cd2292,sh
 defense-evasion,T1574.006,Hijack Execution Flow: LD_PRELOAD,1,Shared Library Injection via /etc/ld.so.preload,39cb0e67-dd0d-4b74-a74b-c072db7ae991,bash
@@ -120,7 +119,9 @@ defense-evasion,T1562.001,Impair Defenses: Disable or Modify Tools,42,Clear Pagg
 defense-evasion,T1562.001,Impair Defenses: Disable or Modify Tools,43,Disable Memory Swap,e74e4c63-6fde-4ad2-9ee8-21c3a1733114,sh
 defense-evasion,T1562.001,Impair Defenses: Disable or Modify Tools,47,Tamper with Defender ATP on Linux/MacOS,40074085-dbc8-492b-90a3-11bcfc52fda8,sh
 defense-evasion,T1562.001,Impair Defenses: Disable or Modify Tools,50,ESXi - Disable Account Lockout Policy via PowerCLI,091a6290-cd29-41cb-81ea-b12f133c66cb,powershell
+defense-evasion,T1562.001,Impair Defenses: Disable or Modify Tools,51,Linux - Kill Process by PID,a7b8c9d0-e1f2-3g4h-5i6j-7k8l9m0n1o2p,bash
 defense-evasion,T1027,Obfuscated Files or Information,1,Decode base64 Data into Script,f45df6be-2e1e-4136-a384-8f18ab3826fb,sh
+defense-evasion,T1027,Obfuscated Files or Information,2,Execute Python Code via eval with Base64 Decoding,47be8c8d-0cbb-4fcf-86c9-80fabd3d712d,bash
 defense-evasion,T1036.003,Masquerading: Rename System Utilities,2,Masquerading as FreeBSD or Linux crond process.,a315bfff-7a98-403b-b442-2ea1b255e556,sh
 defense-evasion,T1553.004,Subvert Trust Controls: Install Root Certificate,1,Install root CA on CentOS/RHEL,9c096ec4-fd42-419d-a762-d64cc950627e,sh
 defense-evasion,T1553.004,Subvert Trust Controls: Install Root Certificate,2,Install root CA on FreeBSD,f4568003-1438-44ab-a234-b3252ea7e7a3,sh
@@ -148,9 +149,11 @@ persistence,T1053.003,Scheduled Task/Job: Cron,1,Cron - Replace crontab with ref
 persistence,T1053.003,Scheduled Task/Job: Cron,2,Cron - Add script to all cron subfolders,b7d42afa-9086-4c8a-b7b0-8ea3faa6ebb0,bash
 persistence,T1053.003,Scheduled Task/Job: Cron,3,Cron - Add script to /etc/cron.d folder,078e69eb-d9fb-450e-b9d0-2e118217c846,sh
 persistence,T1053.003,Scheduled Task/Job: Cron,4,Cron - Add script to /var/spool/cron/crontabs/ folder,2d943c18-e74a-44bf-936f-25ade6cccab4,bash
+persistence,T1053.003,Scheduled Task/Job: Cron,5,Cron Service Manipulation,f9a518fd-643d-4a32-8cbb-14a631d15e79,bash
 persistence,T1176,Browser Extensions,1,Chrome/Chromium (Developer Mode),3ecd790d-2617-4abf-9a8c-4e8d47da9ee1,manual
 persistence,T1176,Browser Extensions,2,Chrome/Chromium (Chrome Web Store),4c83940d-8ca5-4bb2-8100-f46dc914bc3f,manual
 persistence,T1176,Browser Extensions,3,Firefox,cb790029-17e6-4c43-b96f-002ce5f10938,manual
+persistence,T1505.003,Server Software Component: Web Shell,2,Invoke Web Shell in Dockerized PHP Server,98765432-dcba-4321-fe00-1234567890ab,bash
 persistence,T1546.005,Event Triggered Execution: Trap,1,Trap EXIT,a74b2e07-5952-4c03-8b56-56274b076b61,sh
 persistence,T1546.005,Event Triggered Execution: Trap,2,Trap EXIT (freebsd),be1a5d70-6865-44aa-ab50-42244c9fd16f,sh
 persistence,T1546.005,Event Triggered Execution: Trap,3,Trap SIGINT,a547d1ba-1d7a-4cc5-a9cb-8d65e8809636,sh
@@ -165,6 +168,7 @@ persistence,T1098.004,SSH Authorized Keys,1,Modify SSH Authorized Keys,342cc723-
 persistence,T1136.002,Create Account: Domain Account,4,Active Directory Create Admin Account,562aa072-524e-459a-ba2b-91f1afccf5ab,sh
 persistence,T1136.002,Create Account: Domain Account,5,Active Directory Create User Account (Non-elevated),8c992cb3-a46e-4fd5-b005-b1bab185af31,sh
 persistence,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,1,Linux - Load Kernel Module via insmod,687dcb93-9656-4853-9c36-9977315e9d23,bash
+persistence,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,2,Linux - Load Kernel Module via modprobe,c28c8c28-f777-40ee-af7d-59a85af9b619,sh
 persistence,T1053.006,Scheduled Task/Job: Systemd Timers,1,Create Systemd Service and Timer,f4983098-bb13-44fb-9b2c-46149961807b,bash
 persistence,T1053.006,Scheduled Task/Job: Systemd Timers,2,Create a user level transient systemd service and timer,3de33f5b-62e5-4e63-a2a0-6fd8808c80ec,sh
 persistence,T1053.006,Scheduled Task/Job: Systemd Timers,3,Create a system level transient systemd service and timer,d3eda496-1fc0-49e9-aff5-3bec5da9fa22,sh
@@ -180,6 +184,7 @@ persistence,T1037.004,Boot or Logon Initialization Scripts: Rc.common,3,rc.local
 persistence,T1543.002,Create or Modify System Process: SysV/Systemd Service,1,Create Systemd Service,d9e4f24f-aa67-4c6e-bcbf-85622b697a7c,bash
 persistence,T1543.002,Create or Modify System Process: SysV/Systemd Service,2,Create SysV Service,760fe8d2-79d9-494f-905e-a239a3df86f6,sh
 persistence,T1543.002,Create or Modify System Process: SysV/Systemd Service,3,"Create Systemd Service file,  Enable the service , Modify and Reload the service.",c35ac4a8-19de-43af-b9f8-755da7e89c89,bash
+persistence,T1547.013,Boot or Logon Autostart Execution: XDG Autostart Entries,1,Linux - Modification of Autostart Entries,ef5ffc8c-c399-43f2-8b2e-1910a493292b,bash
 persistence,T1053.002,Scheduled Task/Job: At,2,At - Schedule a job,7266d898-ac82-4ec0-97c7-436075d0d08e,sh
 persistence,T1078.003,Valid Accounts: Local Accounts,8,Create local account (Linux),02a91c34-8a5b-4bed-87af-501103eb5357,bash
 persistence,T1078.003,Valid Accounts: Local Accounts,9,Reactivate a locked/expired account (Linux),d2b95631-62d7-45a3-aaef-0972cea97931,bash
@@ -216,6 +221,7 @@ collection,T1056.001,Input Capture: Keylogging,5,Bash session based keylogger,7f
 collection,T1056.001,Input Capture: Keylogging,6,SSHD PAM keylogger,81d7d2ad-d644-4b6a-bea7-28ffe43becca,sh
 collection,T1056.001,Input Capture: Keylogging,7,Auditd keylogger,a668edb9-334e-48eb-8c2e-5413a40867af,sh
 collection,T1074.001,Data Staged: Local Data Staging,2,Stage data from Discovery.sh,39ce0303-ae16-4b9e-bb5b-4f53e8262066,sh
+collection,T1119,Automated Collection,5,Execute Command via Cron Job with find and -exec,e4f5g6h7-i8j9-k0l1-m2n3-o4p5q6r7s8t9,bash
 collection,T1115,Clipboard Data,5,Add or copy content to clipboard with xClip,ee363e53-b083-4230-aff3-f8d955f2d5bb,sh
 collection,T1005,Data from Local System,2,Find and dump sqlite databases (Linux),00cbb875-7ae4-4cf1-b638-e543fd825300,bash
 collection,T1560.002,Archive Collected Data: Archive via Library,1,Compressing data using GZip in Python (FreeBSD/Linux),391f5298-b12d-4636-8482-35d9c17d53a8,sh
@@ -223,7 +229,9 @@ collection,T1560.002,Archive Collected Data: Archive via Library,2,Compressing d
 collection,T1560.002,Archive Collected Data: Archive via Library,3,Compressing data using zipfile in Python (FreeBSD/Linux),001a042b-859f-44d9-bf81-fd1c4e2200b0,sh
 collection,T1560.002,Archive Collected Data: Archive via Library,4,Compressing data using tarfile in Python (FreeBSD/Linux),e86f1b4b-fcc1-4a2a-ae10-b49da01458db,sh
 lateral-movement,T1021.004,Remote Services: SSH,1,ESXi - Enable SSH via PowerCLI,8f6c14d1-f13d-4616-b7fc-98cc69fe56ec,powershell
-privilege-escalation,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,1,Sudo usage,150c3a08-ee6e-48a6-aeaf-3659d24ceb4e,sh
+lateral-movement,T1563.001,Remote Service Session Hijacking: SSH Hijacking,1,SSH Session Hijacking via SSH_AUTH_SOCK,7819dc90-13da-4c7d-bc6d-f8de5e872ae6,bash
+lateral-movement,T1570,Lateral Tool Transfer,3,Linux - Transfer Tool from external drive,77dc31fe-1114-4cde-8022-df3e76ac00ec,sh
+privilege-escalation,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,1,List available sudo commands,150c3a08-ee6e-48a6-aeaf-3659d24ceb4e,sh
 privilege-escalation,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,2,Sudo usage (freebsd),2bf9a018-4664-438a-b435-cc6f8c6f71b1,sh
 privilege-escalation,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,3,Unlimited sudo cache timeout,a7b17659-dd5e-46f7-b7d1-e6792c91d0bc,sh
 privilege-escalation,T1548.003,Abuse Elevation Control Mechanism: Sudo and Sudo Caching,4,Unlimited sudo cache timeout (freebsd),a83ad6e8-6f24-4d7f-8f44-75f8ab742991,sh
@@ -233,6 +241,7 @@ privilege-escalation,T1053.003,Scheduled Task/Job: Cron,1,Cron - Replace crontab
 privilege-escalation,T1053.003,Scheduled Task/Job: Cron,2,Cron - Add script to all cron subfolders,b7d42afa-9086-4c8a-b7b0-8ea3faa6ebb0,bash
 privilege-escalation,T1053.003,Scheduled Task/Job: Cron,3,Cron - Add script to /etc/cron.d folder,078e69eb-d9fb-450e-b9d0-2e118217c846,sh
 privilege-escalation,T1053.003,Scheduled Task/Job: Cron,4,Cron - Add script to /var/spool/cron/crontabs/ folder,2d943c18-e74a-44bf-936f-25ade6cccab4,bash
+privilege-escalation,T1053.003,Scheduled Task/Job: Cron,5,Cron Service Manipulation,f9a518fd-643d-4a32-8cbb-14a631d15e79,bash
 privilege-escalation,T1546.005,Event Triggered Execution: Trap,1,Trap EXIT,a74b2e07-5952-4c03-8b56-56274b076b61,sh
 privilege-escalation,T1546.005,Event Triggered Execution: Trap,2,Trap EXIT (freebsd),be1a5d70-6865-44aa-ab50-42244c9fd16f,sh
 privilege-escalation,T1546.005,Event Triggered Execution: Trap,3,Trap SIGINT,a547d1ba-1d7a-4cc5-a9cb-8d65e8809636,sh
@@ -251,6 +260,7 @@ privilege-escalation,T1548.001,Abuse Elevation Control Mechanism: Setuid and Set
 privilege-escalation,T1548.001,Abuse Elevation Control Mechanism: Setuid and Setgid,10,Do reconnaissance for files that have the setgid bit set,3fb46e17-f337-4c14-9f9a-a471946533e2,sh
 privilege-escalation,T1098.004,SSH Authorized Keys,1,Modify SSH Authorized Keys,342cc723-127c-4d3a-8292-9c0c6b4ecadc,sh
 privilege-escalation,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,1,Linux - Load Kernel Module via insmod,687dcb93-9656-4853-9c36-9977315e9d23,bash
+privilege-escalation,T1547.006,Boot or Logon Autostart Execution: Kernel Modules and Extensions,2,Linux - Load Kernel Module via modprobe,c28c8c28-f777-40ee-af7d-59a85af9b619,sh
 privilege-escalation,T1053.006,Scheduled Task/Job: Systemd Timers,1,Create Systemd Service and Timer,f4983098-bb13-44fb-9b2c-46149961807b,bash
 privilege-escalation,T1053.006,Scheduled Task/Job: Systemd Timers,2,Create a user level transient systemd service and timer,3de33f5b-62e5-4e63-a2a0-6fd8808c80ec,sh
 privilege-escalation,T1053.006,Scheduled Task/Job: Systemd Timers,3,Create a system level transient systemd service and timer,d3eda496-1fc0-49e9-aff5-3bec5da9fa22,sh
@@ -266,6 +276,7 @@ privilege-escalation,T1037.004,Boot or Logon Initialization Scripts: Rc.common,3
 privilege-escalation,T1543.002,Create or Modify System Process: SysV/Systemd Service,1,Create Systemd Service,d9e4f24f-aa67-4c6e-bcbf-85622b697a7c,bash
 privilege-escalation,T1543.002,Create or Modify System Process: SysV/Systemd Service,2,Create SysV Service,760fe8d2-79d9-494f-905e-a239a3df86f6,sh
 privilege-escalation,T1543.002,Create or Modify System Process: SysV/Systemd Service,3,"Create Systemd Service file,  Enable the service , Modify and Reload the service.",c35ac4a8-19de-43af-b9f8-755da7e89c89,bash
+privilege-escalation,T1547.013,Boot or Logon Autostart Execution: XDG Autostart Entries,1,Linux - Modification of Autostart Entries,ef5ffc8c-c399-43f2-8b2e-1910a493292b,bash
 privilege-escalation,T1053.002,Scheduled Task/Job: At,2,At - Schedule a job,7266d898-ac82-4ec0-97c7-436075d0d08e,sh
 privilege-escalation,T1078.003,Valid Accounts: Local Accounts,8,Create local account (Linux),02a91c34-8a5b-4bed-87af-501103eb5357,bash
 privilege-escalation,T1078.003,Valid Accounts: Local Accounts,9,Reactivate a locked/expired account (Linux),d2b95631-62d7-45a3-aaef-0972cea97931,bash
@@ -333,6 +344,7 @@ discovery,T1069.002,Permission Groups Discovery: Domain Groups,15,Active Directo
 discovery,T1007,System Service Discovery,3,System Service Discovery - systemctl/service,f4b26bce-4c2c-46c0-bcc5-fce062d38bef,bash
 discovery,T1007,System Service Discovery,4,System Service Discovery - service/status-all,7a8c3e96-c2a9-4f12-bd39-1a24332b8a10,bash
 discovery,T1007,System Service Discovery,5,File Read - /etc/init.d,e8d7b7b1-8870-4c0d-bcf1-2f5e8c1581f7,bash
+discovery,T1007,System Service Discovery,6,System Service Discovery with systemctl on Linux,d902beb6-b845-4e13-bdcb-8f8d6be0437d,sh
 discovery,T1040,Network Sniffing,1,Packet Capture Linux using tshark or tcpdump,7fe741f7-b265-4951-a7c7-320889083b3e,bash
 discovery,T1040,Network Sniffing,2,Packet Capture FreeBSD using tshark or tcpdump,c93f2492-9ebe-44b5-8b45-36574cccfe67,sh
 discovery,T1040,Network Sniffing,10,Packet Capture FreeBSD using /dev/bpfN with sudo,e2028771-1bfb-48f5-b5e6-e50ee0942a14,sh
@@ -377,8 +389,11 @@ discovery,T1614.001,System Location Discovery: System Language Discovery,5,Disco
 discovery,T1614.001,System Location Discovery: System Language Discovery,6,Discover System Language by Environment Variable Query,cb8f7cdc-36c4-4ed0-befc-7ad7d24dfd7a,sh
 discovery,T1518.001,Software Discovery: Security Software Discovery,4,Security Software Discovery - ps (Linux),23b91cd2-c99c-4002-9e41-317c63e024a2,sh
 discovery,T1518.001,Software Discovery: Security Software Discovery,5,Security Software Discovery - pgrep (FreeBSD),fa96c21c-5fd6-4428-aa28-51a2fbecdbdc,sh
+discovery,T1518.001,Software Discovery: Security Software Discovery,11,Security Software Discovery - Access SELinux Configuration Files,76756836-b5a8-4c6c-8926-8bccb06db3b0,bash
+discovery,T1518.001,Software Discovery: Security Software Discovery,12,Security Software Discovery - Get SELinux status via getenforce,3fce2ceb-6e66-474d-8f43-971973565cbb,bash
+discovery,T1518.001,Software Discovery: Security Software Discovery,13,Security Software Discovery - ClamAV service,ebd49569-67cd-4499-8418-8d83587f6857,sh
 discovery,T1018,Remote System Discovery,6,Remote System Discovery - arp nix,acb6b1ff-e2ad-4d64-806c-6c35fe73b951,sh
-discovery,T1018,Remote System Discovery,7,Remote System Discovery - sweep,96db2632-8417-4dbb-b8bb-a8b92ba391de,sh
+discovery,T1018,Remote System Discovery,7,Remote System Discovery - ping sweep - Linux,96db2632-8417-4dbb-b8bb-a8b92ba391de,sh
 discovery,T1018,Remote System Discovery,12,Remote System Discovery - ip neighbour,158bd4dd-6359-40ab-b13c-285b9ef6fa25,sh
 discovery,T1018,Remote System Discovery,13,Remote System Discovery - ip route,1a4ebe70-31d0-417b-ade2-ef4cb3e7d0e1,sh
 discovery,T1018,Remote System Discovery,14,Remote System Discovery - netstat,d2791d72-b67f-4615-814f-ec824a91f514,sh
@@ -390,6 +405,7 @@ execution,T1053.003,Scheduled Task/Job: Cron,1,Cron - Replace crontab with refer
 execution,T1053.003,Scheduled Task/Job: Cron,2,Cron - Add script to all cron subfolders,b7d42afa-9086-4c8a-b7b0-8ea3faa6ebb0,bash
 execution,T1053.003,Scheduled Task/Job: Cron,3,Cron - Add script to /etc/cron.d folder,078e69eb-d9fb-450e-b9d0-2e118217c846,sh
 execution,T1053.003,Scheduled Task/Job: Cron,4,Cron - Add script to /var/spool/cron/crontabs/ folder,2d943c18-e74a-44bf-936f-25ade6cccab4,bash
+execution,T1053.003,Scheduled Task/Job: Cron,5,Cron Service Manipulation,f9a518fd-643d-4a32-8cbb-14a631d15e79,bash
 execution,T1053.006,Scheduled Task/Job: Systemd Timers,1,Create Systemd Service and Timer,f4983098-bb13-44fb-9b2c-46149961807b,bash
 execution,T1053.006,Scheduled Task/Job: Systemd Timers,2,Create a user level transient systemd service and timer,3de33f5b-62e5-4e63-a2a0-6fd8808c80ec,sh
 execution,T1053.006,Scheduled Task/Job: Systemd Timers,3,Create a system level transient systemd service and timer,d3eda496-1fc0-49e9-aff5-3bec5da9fa22,sh
