@@ -86,7 +86,7 @@ atomic_tests:
   - macos
   executor:
     command: |
-      username=$(id -u -n) && lsof -u $username
+      username=$(id -u -n) && lsof -u $username > /dev/null
     name: sh
   dependency_executor_name: sh
   dependencies:
