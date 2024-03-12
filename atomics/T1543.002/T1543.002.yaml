@@ -118,6 +118,7 @@ atomic_tests:
 
   supported_platforms:
   - linux
+  dependency_executor_name: sh
   dependencies:
   - description: |
       System must be Ubuntu ,Kali OR CentOS.

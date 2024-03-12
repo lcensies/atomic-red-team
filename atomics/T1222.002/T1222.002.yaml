@@ -12,7 +12,7 @@ atomic_tests:
     numeric_mode:
       description: Specified numeric mode value
       type: integer
-      default: 755
+      default: 4777
     file_or_folder:
       description: Path of the file or folder
       type: path
@@ -32,7 +32,7 @@ atomic_tests:
     symbolic_mode:
       description: Specified symbolic mode value
       type: string
-      default: a+w
+      default: +x
     file_or_folder:
       description: Path of the file or folder
       type: path

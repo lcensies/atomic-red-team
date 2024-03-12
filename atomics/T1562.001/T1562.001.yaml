@@ -78,6 +78,7 @@ atomic_tests:
     Disables SELinux enforcement
   supported_platforms:
   - linux
+  dependency_executor_name: sh
   dependencies:
     - description: |
         SELinux must be installed

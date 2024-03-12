@@ -239,3 +239,14 @@ atomic_tests:
     elevation_required: false
     command: |
       uname -srm
+- name: Interactive shell
+  auto_generated_guid: d2405b9b-45e1-4e9f-a290-4d67ad32de2f
+  description: |
+    An adversary may want to launch an interactive shell.
+  supported_platforms:
+  - linux
+  executor:
+    name: sh
+    elevation_required: false
+    command: |
+      nohup bash -i

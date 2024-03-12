@@ -173,6 +173,7 @@ atomic_tests:
       description: Path that should be output as a zip archive
       type: path
       default: $HOME/data.zip
+  dependency_executor_name: sh
   dependencies:
   - description: |
       Files to zip must exist (#{input_files})
@@ -227,6 +228,7 @@ atomic_tests:
       description: File that should be output
       type: path
       default: '$HOME/data.tar.gz'
+  dependency_executor_name: sh
   dependencies:
   - description: |
       Folder to zip must exist (#{input_file_folder})

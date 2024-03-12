@@ -41,6 +41,7 @@ atomic_tests:
     Executes arbitrary Python code by simulating the use of `eval` to execute base64 decoded data. This technique can be used for obfuscation and to bypass simplistic detection mechanisms.
   supported_platforms:
     - linux
+  dependency_executor_name: sh
   dependencies:
     - description: |
         Requires Python to be installed on the system.

@@ -154,6 +154,7 @@ atomic_tests:
       Uses the Python spawn function to spawn a sh shell followed by a bash shell. Per Volexity, this technique was observed in exploitation of Atlassian Confluence [CVE-2022-26134]. Reference: https://www.volexity.com/blog/2022/06/02/zero-day-exploitation-of-atlassian-confluence
     supported_platforms:
     - linux
+    dependency_executor_name: sh
     dependencies:
       - description: |
           Verify if python is in the environment variable path and attempt to import requests library.
