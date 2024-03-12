@@ -22,6 +22,7 @@ atomic_tests:
     elevation_required: false
     command: |
       # Start a new ssh-agent instance and capture its SSH_AUTH_SOCK
+      pkill ssh-agent
       eval $(ssh-agent -s)
       OLD_SSH_AUTH_SOCK=$SSH_AUTH_SOCK
       # Kill the initial ssh-agent and start a new one to simulate hijacking
@@ -33,5 +34,6 @@ atomic_tests:
       # Simulate SSH session hijacking by switching to the new SSH_AUTH_SOCK
       SSH_AUTH_SOCK=$NEW_SSH_AUTH_SOCK ssh username@target_host 2>/dev/null
     cleanup_command: |
+      pkill ssh-agent
       eval $(ssh-agent -k)
 

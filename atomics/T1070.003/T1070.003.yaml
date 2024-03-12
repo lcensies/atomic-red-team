@@ -63,6 +63,7 @@ atomic_tests:
   executor:
     command: |
       ln -sf /dev/null #{history_path}
+      rm -rf #{history_path}
     name: sh
 - name: Clear Bash history (truncate)
   auto_generated_guid: 47966a1d-df4f-4078-af65-db6d9aa20739
@@ -77,6 +78,7 @@ atomic_tests:
       default: ~/.bash_history
   executor:
     command: |
+      touch #{history_path}
       truncate -s0 #{history_path}
     name: sh
 - name: Clear history of a bunch of shells
@@ -91,7 +93,7 @@ atomic_tests:
       unset HISTFILE
       export HISTFILESIZE=0
       history -c
-    name: sh
+    name: bash
 - name:  Clear and Disable Bash History Logging
   auto_generated_guid: 784e4011-bd1a-4ecd-a63a-8feb278512e6
   description: |

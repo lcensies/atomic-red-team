@@ -13,7 +13,7 @@ atomic_tests:
     interface:
       description: Specify interface to perform PCAP on.
       type: string
-      default: ens33
+      default: lo
   dependency_executor_name: bash
   dependencies:
   - description: |
@@ -24,8 +24,8 @@ atomic_tests:
       (which yum && yum -y install epel-release tcpdump tshark)||(which apt-get && DEBIAN_FRONTEND=noninteractive apt-get install -y tcpdump tshark)
   executor:
     command: |
-      tcpdump -c 5 -nnni #{interface}
-      tshark -c 5 -i #{interface}
+      which tcpdump && tcpdump -c 5 -nnni #{interface} & ;  sleep 2 && kill $!
+      which tshark && tshark -c 5 -i #{interface} & ;  sleep 2 && kill $!
     name: bash
     elevation_required: true
 - name: Packet Capture FreeBSD using tshark or tcpdump

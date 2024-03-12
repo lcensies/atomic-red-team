@@ -16,7 +16,7 @@ atomic_tests:
     file_or_folder:
       description: Path of the file or folder
       type: path
-      default: /tmp/AtomicRedTeam/atomics/T1222.002
+      default: /tmp/T1222.002.numeric
   executor:
     command: |
       chmod #{numeric_mode} #{file_or_folder}
@@ -36,7 +36,7 @@ atomic_tests:
     file_or_folder:
       description: Path of the file or folder
       type: path
-      default: /tmp/AtomicRedTeam/atomics/T1222.002
+      default: /tmp/T1222.002.symbolic
   executor:
     command: |
       chmod #{symbolic_mode} #{file_or_folder}

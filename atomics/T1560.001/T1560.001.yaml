@@ -223,7 +223,7 @@ atomic_tests:
     input_file_folder:
       description: Path that should be compressed
       type: path
-      default: '$HOME/$USERNAME'
+      default: '$HOME/$USERNAME/archive_folder'
     output_file:
       description: File that should be output
       type: path
@@ -240,7 +240,7 @@ atomic_tests:
     name: sh
     elevation_required: false
     command: |
-      tar -cvzf #{output_file} #{input_file_folder}
+      tar -cvzf #{output_file} #{input_file_folder} > /dev/null
     cleanup_command: |
       rm -f #{output_file}
 - name: Data Encrypted with zip and gpg symmetric
