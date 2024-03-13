@@ -1,0 +1,39 @@
+---
+
+version: "3"
+
+networks:
+  private_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.2.0.0/24
+
+
+
+
+services:
+  php_server:
+    image: eriksoderblom/alpine-apache-php:24.01
+    container_name: t1505_003_server_revshell
+    restart: unless-stopped
+    hostname: php_server
+    volumes:
+      - "/tmp/t1505_003:/htdocs"
+    networks:
+      private_network:
+        ipv4_address: 10.2.0.200
+    ports:
+    - 127.0.0.1:8080:80 
+
+
+  attacker:
+    image: eriksoderblom/alpine-apache-php:24.01
+    container_name: t1505_003_attacker
+    restart: unless-stopped
+    hostname: attacker
+    networks:
+      private_network:
+        ipv4_address: 10.2.0.201
+    entrypoint: nc -nlvp 1234 
+
