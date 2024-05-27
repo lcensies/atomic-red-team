@@ -85,7 +85,7 @@ atomic_tests:
     prereq_command: |
       if [ -f #{path_to_shared_library} ]; then exit 0; else exit 1; fi;
     get_prereq_command: |
-      gcc -shared -fPIC -Wl,--no-as-needed -ldl -o #{path_to_shared_library} #{path_to_shared_library_source}
+      gcc -D_GNU_SOURCE -shared -fPIC -Wl,--no-as-needed -ldl -o #{path_to_shared_library} #{path_to_shared_library_source}
   executor:
     command: |
       LD_PRELOAD=#{path_to_shared_library} cat /proc/1/cmdline
