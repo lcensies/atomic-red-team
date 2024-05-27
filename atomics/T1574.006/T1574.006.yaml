@@ -62,6 +62,35 @@ atomic_tests:
     command: |
       LD_PRELOAD=#{path_to_shared_library} ls
     name: bash
+- name: Shared Library Symbol Hook
+  auto_generated_guid: 4f134b8d-e306-4c67-9b93-2b3e237c08c8
+  description: |
+    This test utilizes dlsym mechanism to overwrite legitimate library function in a compiled binary
+
+    The method of hooking infected library into target bin is not important here. We use LD_PRELOAD.
+  supported_platforms:
+  - linux
+  input_arguments:
+    path_to_shared_library_source:
+      type: path
+      default: PathToAtomicsFolder/T1574.006/src/Linux/T1574.006.lib_hook.c
+    path_to_shared_library:
+      description: Path to a shared library object
+      type: path
+      default: /tmp/T1574006.lib_hook.so
+  dependency_executor_name: bash
+  dependencies:
+  - description: |
+      The shared library must exist on disk at specified location (#{path_to_shared_library})
+    prereq_command: |
+      if [ -f #{path_to_shared_library} ]; then exit 0; else exit 1; fi;
+    get_prereq_command: |
+      gcc -shared -fPIC -Wl,--no-as-needed -ldl -o #{path_to_shared_library} #{path_to_shared_library_source}
+  executor:
+    command: |
+      LD_PRELOAD=#{path_to_shared_library} cat /proc/1/cmdline
+    name: bash
+
 - name: Dylib Injection via DYLD_INSERT_LIBRARIES
   auto_generated_guid: 4d66029d-7355-43fd-93a4-b63ba92ea1be
   description: |
