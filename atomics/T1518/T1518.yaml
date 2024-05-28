@@ -90,7 +90,7 @@ atomic_tests:
     name: sh
     elevation_required: false
     command: |
-      ((which pacman >/dev/null) && pacman -Q) || :
-      ((which apt >/dev/null) && apt list --installed) || :
-      ((which rpm >/dev/null) && rpm -qa) || :
+      ((which pacman >/dev/null) && pacman -Q >/dev/null) || :
+      ((which apt >/dev/null) && apt list --installed >/dev/null) || :
+      ((which rpm >/dev/null) && rpm -qa >/dev/null) || :
 

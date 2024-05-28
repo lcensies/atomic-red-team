@@ -357,9 +357,9 @@ atomic_tests:
   - linux
   executor:
     command: |
-      lsmod
-      kmod list
-      grep vmw /proc/modules
+      lsmod >/dev/null
+      kmod list >/dev/null
+      grep vmw /proc/modules || true
     name: sh
 - name: FreeBSD List Kernel Modules
   auto_generated_guid: 4947897f-643a-4b75-b3f5-bed6885749f6
