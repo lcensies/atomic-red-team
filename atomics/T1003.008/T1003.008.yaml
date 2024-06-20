@@ -15,7 +15,7 @@ atomic_tests:
   executor:
     command: |
       sudo cat /etc/shadow > #{output_file}
-      cat #{output_file}
+      cat #{output_file} > /dev/null 
     cleanup_command: |
       rm -f #{output_file}
     name: bash
@@ -53,7 +53,7 @@ atomic_tests:
   executor:
     command: |
       cat /etc/passwd > #{output_file}
-      cat #{output_file}
+      cat #{output_file} > /dev/null
     cleanup_command: |
       rm -f #{output_file}
     name: sh
@@ -71,7 +71,7 @@ atomic_tests:
   executor:
     command: | 
       unamestr=$(uname)
-      if [ "$unamestr" = 'Linux' ]; then echo -e "e /etc/passwd\n,p\ne /etc/shadow\n,p\n" | ed > ${output_file}; elif [ "$unamestr" = 'FreeBSD' ]; then echo -e "e /etc/passwd\n,p\ne /etc/master.passwd\n,p\ne /etc/shadow\n,p\n" | ed > ${output_file}; fi
+      if [ "$unamestr" = 'Linux' ]; then echo -e "e /etc/passwd\n,p\ne /etc/shadow\n,p\n" | ed > #{output_file}; elif [ "$unamestr" = 'FreeBSD' ]; then echo -e "e /etc/passwd\n,p\ne /etc/master.passwd\n,p\ne /etc/shadow\n,p\n" | ed > ${output_file}; fi
     cleanup_command: |
       rm -f #{output_file}
     name: sh
@@ -91,8 +91,8 @@ atomic_tests:
     command: |
       testcat(){ (while read line; do echo $line >> #{output_file}; done < $1) }
       [ "$(uname)" = 'FreeBSD' ] && testcat /etc/master.passwd
-      testcat /etc/passwd
-      testcat /etc/shadow
+      testcat /etc/passwd > /dev/null
+      testcat /etc/shadow > /dev/null
     cleanup_command: |
       rm -f #{output_file}
     name: sh
