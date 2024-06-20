@@ -1,8 +1,8 @@
 attack_technique: T1068
 display_name: Exploitation for Privilege Escalation
 atomic_tests:
-  - name: PwnKit vuln privilege escalation
-    auto_generated_guid: c1ab0c34-8a8e-43ed-9518-b15724fbc1e1
+- name: PwnKit vuln privilege escalation
+  auto_generated_guid: c1ab0c34-8a8e-43ed-9518-b15724fbc1e1
   description: |
     Exploit vulnerabity CVE_2021_4034 in polkit to get local privilege escalation.
   supported_platforms:
