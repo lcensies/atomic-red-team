@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PARAMS="$@"
+
+if [[ $PARAMS == *"--rebuild"* ]]; then
+	echo "Rebuilding image"
+	docker-compose build
+	exit $?
+fi
+
+# we need no database here
+docker-compose run --rm --no-deps ms ./msfvenom $PARAMS

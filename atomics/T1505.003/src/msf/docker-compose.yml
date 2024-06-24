@@ -1,0 +1,32 @@
+version: '3'
+services:
+  ms:
+    image: metasploitframework/metasploit-framework:6.3.47
+    ports:
+      - 4444:4444
+    container_name: metasploit
+    networks:
+      private_network:
+        ipv4_address: 10.2.0.201
+    environment:
+      LHOST: 10.2.0.201
+    volumes:
+      - ${PWD}/payloads:/home/msf
+
+  victim:
+    image: alpine:3.20
+    container_name: victim
+    networks:
+      private_network:
+        ipv4_address: 10.2.0.202
+    volumes:
+      - ${PWD}/payloads:/tmp/payloads
+      - ${PWD}/bin:/tmp/bin
+
+networks:
+  private_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.2.0.0/24
+

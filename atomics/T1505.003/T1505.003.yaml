@@ -132,3 +132,27 @@ atomic_tests:
     cleanup_command: |
       rm -r /tmp/t1505_003 2>/dev/null
       docker rmi eriksoderblom/alpine-apache-php:24.01
+
+- name: "Meterpreter Reverse Shell in Docker"
+  description: |
+    This test simulates an attacker using Metasploit to handle a reverse shell from a Docker container acting as a victim.
+    The test automates the process of setting up attacker and victim environments using tmux, runs payloads, and handles responses.
+  supported_platforms:
+    - linux
+  input_arguments:
+    test_src:
+      description: Path to the test source folder
+      type: path
+      default: PathToAtomicsFolder/T1505.003/src/msf
+  dependency_executor_name: bash
+  executor:
+    name: "bash"
+    command: |
+      sh -c "cd #{test_src} && ./invoke_test.sh"
+  dependencies:
+    - description: "Ensure Docker and Metasploit are installed and configured properly."
+    - description: "Ensure tmux is installed on the host."
+  cleanup_command: |- 
+    rm -r #{test_src}/payloads/.msf4 || :
+    rm /tmp/meterpreter_session.log || : 
+    

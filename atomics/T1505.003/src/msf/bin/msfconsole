@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker-compose run --name msfconsole --rm --service-ports ms ./msfconsole "$@"
