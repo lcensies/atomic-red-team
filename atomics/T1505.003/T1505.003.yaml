@@ -134,6 +134,7 @@ atomic_tests:
       docker rmi eriksoderblom/alpine-apache-php:24.01
 
 - name: "Meterpreter Reverse Shell in Docker"
+  auto_generated_guid: 4d9ce5ea-a34d-45c8-8d8a-8b7fd75d7790
   description: |
     This test simulates an attacker using Metasploit to handle a reverse shell from a Docker container acting as a victim.
     The test automates the process of setting up attacker and victim environments using tmux, runs payloads, and handles responses.
