@@ -100,6 +100,7 @@ atomic_tests:
       if [ -f #{path_to_pam_module} ]; then exit 0; else exit 1; fi;
     get_prereq_command: |
       sudo gcc -shared -fPIC -o #{path_to_pam_module} #{path_to_pam_module_source}
+  dependency_executor_name: bash
   executor:
     name: sh
     elevation_required: true

