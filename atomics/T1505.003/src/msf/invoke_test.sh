@@ -102,3 +102,6 @@ done
 
 # Late print commands executed in attacker console
 cat $LOG_PATH
+
+# Stop victim container
+docker-compose down

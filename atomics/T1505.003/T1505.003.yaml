@@ -185,10 +185,6 @@ atomic_tests:
   dependencies:
     - description: "Ensure Docker and Metasploit are installed and configured properly."
     - description: "Ensure tmux is installed on the host."
-<<<<<<< Updated upstream
-  cleanup_command: "rm -r #{test_src}/payloads/.msf4 || :"
-=======
   cleanup_command: |- 
     rm -r #{test_src}/payloads/.msf4 || :
     rm /tmp/meterpreter_session.log || : 
->>>>>>> Stashed changes

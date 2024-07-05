@@ -19,6 +19,7 @@ services:
     networks:
       private_network:
         ipv4_address: 10.2.0.202
+    tty: true
     volumes:
       - ${PWD}/payloads:/tmp/payloads
       - ${PWD}/bin:/tmp/bin
