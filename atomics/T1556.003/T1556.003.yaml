@@ -22,6 +22,7 @@ atomic_tests:
       description: Index where the rule is inserted.
       type: integer
       default: 1
+  dependency_executor_name: bash
   executor:
     name: sh
     elevation_required: true
