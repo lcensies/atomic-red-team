@@ -7,7 +7,7 @@ LOG_PATH="/tmp/meterpreter_session.log"
 configure() {
 	cd $SCRIPT_DIR && docker-compose pull ms victim
 	# Ensure tmux is installed
-	which tmux || (sudo apt update && sudo apt install tmux)
+	which tmux || (sudo apt-get update && sudo apt-get install -y tmux)
 }
 
 configure
