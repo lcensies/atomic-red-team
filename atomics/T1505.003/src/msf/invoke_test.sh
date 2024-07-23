@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
 SCRIPT_DIR="$(cd ${0%/*} && pwd -P)"
 SESSION="MeterpreterTest"
