@@ -55,19 +55,3 @@ atomic_tests:
     executor:
       command: touch /tmp/endswithspace\
       name: bash
-  - name: Masquerading - Create fake malware artifacts
-    auto_generated_guid: 8b655dd8-fedf-4af3-9e6e-f4284b12e1ad
-    description: |
-      Creates files with paths similar to ones used in some malware samples.
-    supported_platforms:
-      - linux
-    executor:
-      command: |
-        # XMRig 
-        echo 1 > /dev/shm/.s.lst
-        # Badcall
-        echo 1 > /tmp/.vgauthsvclog
-      name: bash
-    cleanup_command: |-
-      rm /dev/shm/.s.lst
-      rm /tmp/.vgauthsvclog
